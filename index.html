@@ -46,6 +46,25 @@
     .details, .project-links { font-size: 14px; }
     .details { color: var(--muted); }
     .project-links { display: flex; flex-wrap: wrap; gap: 7px 22px; margin: 0; }
+    .project-with-gallery { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
+    .project-gallery { min-width: 0; margin: 0; }
+    .project-image-button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #111; cursor: zoom-in; }
+    .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 2281 / 1336; object-fit: contain; }
+    .gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .gallery-controls[hidden], .gallery-slide[hidden] { display: none; }
+    .gallery-controls button, .gallery-close { min-width: 36px; min-height: 36px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; cursor: pointer; }
+    .gallery-controls button:hover, .gallery-close:hover { background: #f0f4f8; }
+    button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+    .gallery-caption { color: var(--muted); text-align: center; font-size: 12px; line-height: 1.5; }
+    .gallery-dialog { width: min(1200px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); }
+    .gallery-dialog::backdrop { background: rgb(0 0 0 / 75%); }
+    .gallery-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .gallery-dialog-header h3 { margin: 0; }
+    .gallery-dialog img { display: block; max-width: 100%; max-height: 72vh; width: auto; height: auto; margin: auto; }
+    @media (max-width: 760px) {
+      .project-with-gallery { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .project-gallery { width: min(100%, 400px); }
+    }
     footer { padding-top: 22px; color: var(--muted); font-size: 13px; }
     footer p { margin-bottom: 6px; }
     .email { overflow-wrap: anywhere; }
@@ -70,6 +89,7 @@
       .lead { font-size: 12pt; }
       h2, h3, h4 { break-after: avoid; }
       .projects > li { break-inside: avoid; }
+      .gallery-controls, .gallery-dialog { display: none; }
       a { color: #000; }
     }
   </style>
@@ -174,11 +194,24 @@
         <h2 id="projects-title">3. Projects and engineering work</h2>
         <p class="summary">Examples across AI tools, enterprise platforms, web and mobile applications, industrial control, 3D engineering software, video streaming, security, scientific computing and education. Each entry describes the work and the technologies involved.</p>
         <ol class="projects">
-          <li>
-            <h3>ResearchTube — AI research and browser tools</h3>
-            <p>Designed and developed an independent open-source project connecting ChatGPT with YouTube, websites and local media tools. The system lets ChatGPT examine video frames and storyboards, investigate viewer comments, and explore websites through the user's browser session.</p>
-            <p class="details"><strong>Technologies:</strong> JavaScript, Python / asyncio, Chrome extensions, MCP / JSON-RPC, Chrome DevTools Protocol, FFmpeg and yt-dlp.</p>
-            <p class="project-links"><a href="https://github.com/ilinic/ResearchTube">Source code and project details</a><a href="https://www.youtube.com/watch?v=MCERzuiS0mg">Video demonstration</a></p>
+          <li class="project-with-gallery" id="researchtube">
+            <div>
+              <h3>ResearchTube — connecting ChatGPT with YouTube and the web</h3>
+              <p>Search YouTube, explore comments, retrieve subtitles, download videos, and automatically bring frames and storyboards directly into the chat. ResearchTube also lets ChatGPT explore websites through your signed-in browser session, opening up sources beyond its built-in access.</p>
+              <p>I designed and built this free, open-source extension to deeply explore modern interfaces for integrating LLMs with external tools.</p>
+              <p class="project-links"><a href="https://github.com/ilinic/ResearchTube">GitHub</a></p>
+            </div>
+            <figure class="project-gallery" data-gallery aria-label="ResearchTube screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge ResearchTube screenshot" aria-haspopup="dialog">
+                <img class="gallery-slide" src="assets/projects/researchtube/youtube-research.png" width="2281" height="1336" loading="lazy" alt="ResearchTube researching a YouTube video in ChatGPT" data-caption="YouTube research in ChatGPT">
+                <img class="gallery-slide" src="assets/projects/researchtube/website-research.png" width="2281" height="1336" loading="lazy" alt="ResearchTube studying a website and bringing its images into ChatGPT" data-caption="Website research with images in chat" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous ResearchTube screenshot">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next ResearchTube screenshot">&#8594;</button>
+              </figcaption>
+            </figure>
           </li>
           <li>
             <h3>Unimarket — enterprise procurement platform</h3>
@@ -272,5 +305,72 @@
       <p>Artem Muravev · New Zealand · <a href="https://github.com/ilinic">GitHub</a></p>
     </footer>
   </div>
+  <dialog class="gallery-dialog" aria-labelledby="gallery-title">
+    <div class="gallery-dialog-header">
+      <h3 id="gallery-title">ResearchTube</h3>
+      <form method="dialog"><button class="gallery-close" aria-label="Close screenshot">&#215;</button></form>
+    </div>
+    <img alt="">
+    <div class="gallery-controls">
+      <button type="button" data-previous aria-label="Previous screenshot">&#8592;</button>
+      <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+      <button type="button" data-next aria-label="Next screenshot">&#8594;</button>
+    </div>
+  </dialog>
+  <script>
+    const imageDialog = document.querySelector('.gallery-dialog');
+    let activeGallery;
+    document.querySelectorAll('[data-gallery]').forEach(gallery => {
+      const slides = [...gallery.querySelectorAll('.gallery-slide')];
+      const controls = gallery.querySelector('.gallery-controls');
+      let index = 0;
+      const render = () => {
+        slides.forEach((slide, position) => { slide.hidden = position !== index; });
+        const current = slides[index];
+        const caption = `${index + 1} / ${slides.length} · ${current.dataset.caption}`;
+        gallery.querySelector('.gallery-caption').textContent = caption;
+        if (imageDialog.open && activeGallery === gallery) {
+          const enlarged = imageDialog.querySelector('img');
+          enlarged.src = current.src;
+          enlarged.alt = current.alt;
+          imageDialog.querySelector('.gallery-caption').textContent = caption;
+          imageDialog.querySelector('.gallery-controls').hidden = slides.length < 2;
+        }
+      };
+      gallery.changeSlide = step => {
+        index = (index + step + slides.length) % slides.length;
+        render();
+      };
+      controls.hidden = slides.length < 2;
+      gallery.querySelector('[data-previous]').addEventListener('click', () => gallery.changeSlide(-1));
+      gallery.querySelector('[data-next]').addEventListener('click', () => gallery.changeSlide(1));
+      gallery.querySelector('.project-image-button').addEventListener('click', () => {
+        activeGallery = gallery;
+        imageDialog.showModal();
+        render();
+      });
+      gallery.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          gallery.changeSlide(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      });
+      render();
+    });
+    imageDialog.querySelector('[data-previous]').addEventListener('click', () => activeGallery.changeSlide(-1));
+    imageDialog.querySelector('[data-next]').addEventListener('click', () => activeGallery.changeSlide(1));
+    imageDialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        activeGallery.changeSlide(event.key === 'ArrowLeft' ? -1 : 1);
+      }
+    });
+    imageDialog.addEventListener('click', event => {
+      if (event.target === imageDialog) {
+        const bounds = imageDialog.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) imageDialog.close();
+      }
+    });
+  </script>
 </body>
 </html>
