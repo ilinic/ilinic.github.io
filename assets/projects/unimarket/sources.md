@@ -20,4 +20,6 @@ Product UI and screenshots belong to Unimarket. No image generation was used.
 
 The company's public page states that Unimarket supports hundreds of organisations across New Zealand, Australia, the United States and beyond: https://www.unimarket.com/vendorpanel/ (checked 19 October 2026). This describes the provider's present reach, including its merger with VendorPanel; it is not a count of users or a historical deployment figure attributed to Artem's employment.
 
-A company-issued release from 7 February 2017 reported nearly 80,000 total users: https://www.pr.com/press-release/704467. This historical number is not used as a current statistic on the portfolio. No verified current million-user figure was found.
+A company-issued release from 7 February 2017 reported nearly 80,000 total users: https://www.pr.com/press-release/704467. That figure is too old to describe the scale during Artem's later employment and is not used on the portfolio.
+
+The general scale wording in the portfolio was supplied and approved by Artem. No customer-specific user counts are included.
