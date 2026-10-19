@@ -123,7 +123,7 @@
       <p class="subtitle">Contract software developer · Auckland, Hamilton, Northern Waikato, New Zealand</p>
       <nav aria-label="Page sections"><a href="#services">What I offer</a><a href="#experience">Experience &amp; strengths</a><a href="#projects">Projects</a><a href="#recommendations">Recommendations</a><button id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-panel">Contact me</button></nav>
       <div id="contact-panel" class="contact-panel" hidden>
-        <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy address to copy it with [at] in place of the at sign."></canvas>
+        <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy address to copy it."></canvas>
         <button id="copy-contact" type="button">Copy address</button>
         <p id="contact-status" role="status" aria-live="polite"></p>
         <input id="contact-copy-fallback" class="contact-copy-fallback" type="text" aria-label="Email address for manual copying" readonly hidden>
@@ -707,7 +707,7 @@
       const status = document.getElementById('contact-status');
       const fallback = document.getElementById('contact-copy-fallback');
       const address = () => String.fromCharCode(97,114,116,101,109,46,109,111,117,114,97,118,105,101,118,64,103,109,97,105,108,46,99,111,109);
-      const copyText = () => address().replace(String.fromCharCode(64), ' [at] ');
+      const copyText = () => address();
       toggle.addEventListener('click', () => {
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', String(!expanded));
@@ -733,13 +733,13 @@
       copy.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(copyText());
-          status.textContent = 'Copied with [at] instead of @. Replace [at] with @ before sending.';
+          status.textContent = 'Email address copied.';
         } catch {
           fallback.value = copyText();
           fallback.hidden = false;
           fallback.focus();
           fallback.select();
-          status.textContent = 'Copy the selected address, then replace [at] with @ before sending.';
+          status.textContent = 'Copy the selected email address.';
         }
       });
     })();
