@@ -49,7 +49,8 @@
     .project-with-gallery { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
     .project-gallery { min-width: 0; margin: 0; }
     .project-image-button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #111; cursor: zoom-in; }
-    .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: 2281 / 1336; object-fit: contain; }
+    .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: var(--gallery-ratio, 2281 / 1336); object-fit: contain; }
+    .project-gallery-wide { --gallery-ratio: 16 / 9; }
     .gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
     .gallery-controls[hidden], .gallery-slide[hidden] { display: none; }
     .gallery-controls button, .gallery-close { min-width: 36px; min-height: 36px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; cursor: pointer; }
@@ -201,7 +202,7 @@
               <p>I designed and built this free, open-source extension to deeply explore modern interfaces for integrating LLMs with external tools.</p>
               <p class="project-links"><a href="https://github.com/ilinic/ResearchTube">GitHub</a></p>
             </div>
-            <figure class="project-gallery" data-gallery aria-label="ResearchTube screenshots">
+            <figure class="project-gallery" data-gallery data-gallery-title="ResearchTube" aria-label="ResearchTube screenshots">
               <button class="project-image-button" type="button" aria-label="Enlarge ResearchTube screenshot" aria-haspopup="dialog">
                 <img class="gallery-slide" src="assets/projects/researchtube/youtube-research.png" width="2281" height="1336" loading="lazy" alt="ResearchTube researching a YouTube video in ChatGPT" data-caption="YouTube research in ChatGPT">
                 <img class="gallery-slide" src="assets/projects/researchtube/website-research.png" width="2281" height="1336" loading="lazy" alt="ResearchTube studying a website and bringing its images into ChatGPT" data-caption="Website research with images in chat" hidden>
@@ -210,6 +211,24 @@
                 <button type="button" data-previous aria-label="Previous ResearchTube screenshot">&#8592;</button>
                 <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
                 <button type="button" data-next aria-label="Next ResearchTube screenshot">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="mobile-hmi">
+            <div>
+              <h3>Mobile HMI — remote rectification control</h3>
+              <p>Monitor temperatures, follow process trends and operate industrial rectification units remotely through the equipment manufacturer's industrial cloud.</p>
+              <p>I chose Dart and Flutter for a shared codebase targeting iOS, Android, macOS, Windows and Linux. Starting with limited experience in the stack, I learned Dart fundamentals, designed the architecture and built the application using modern AI development tools and my background in industrial software.</p>
+            </div>
+            <figure class="project-gallery project-gallery-wide" data-gallery data-gallery-title="Mobile HMI" aria-label="Mobile HMI screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge Mobile HMI screenshot" aria-haspopup="dialog">
+                <img class="gallery-slide" src="assets/projects/mobile-hmi/equipment-overview-en.png" width="1672" height="941" loading="lazy" alt="English presentation of the Mobile HMI equipment overview with controls and temperature readings" data-caption="Equipment overview · English preview">
+                <img class="gallery-slide" src="assets/projects/mobile-hmi/process-trends-en.png" width="1672" height="941" loading="lazy" alt="English presentation of Mobile HMI process trends with illustrative temperature, heater and pump data" data-caption="Process trends · illustrative data" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Mobile HMI screenshot">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Mobile HMI screenshot">&#8594;</button>
               </figcaption>
             </figure>
           </li>
@@ -229,11 +248,6 @@
             <p>A lightweight inventory system combining a PHP / MySQL backend and web interface with an Android application. Staff scan a product QR code or enter its ID, record quantity changes, and view stock levels and movement history with the user and timestamp.</p>
             <p class="details"><strong>Technologies:</strong> Android, Java, Kotlin, PHP, MySQL and QR-code scanning.</p>
             <p class="project-links"><a href="https://github.com/ilinic/Inventory-mini">Source code, screenshots and project details</a></p>
-          </li>
-          <li>
-            <h3>Industrial control application — current development</h3>
-            <p>I chose a technology stack I had not used before because it best suited an industrial control application. After learning the language fundamentals, I designed and implemented the application by applying familiar architectural principles and established solutions to software problems.</p>
-            <p class="details"><strong>Focus:</strong> Equipment schematics, operating parameters, controls and cloud API integration. In development.</p>
           </li>
           <li>
             <h3>SolidWorks automation — engineering workflow tools</h3>
@@ -330,6 +344,7 @@
         const caption = `${index + 1} / ${slides.length} · ${current.dataset.caption}`;
         gallery.querySelector('.gallery-caption').textContent = caption;
         if (imageDialog.open && activeGallery === gallery) {
+          imageDialog.querySelector('#gallery-title').textContent = gallery.dataset.galleryTitle;
           const enlarged = imageDialog.querySelector('img');
           enlarged.src = current.src;
           enlarged.alt = current.alt;
