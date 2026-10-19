@@ -51,7 +51,7 @@
     .project-image-button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #111; cursor: zoom-in; }
     .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: var(--gallery-ratio, 2281 / 1336); object-fit: contain; }
     .project-gallery-wide { --gallery-ratio: 16 / 9; }
-    .project-gallery-light { --gallery-ratio: 5 / 2; }
+    .project-gallery-light { --gallery-ratio: 8 / 5; }
     .project-gallery-light .project-image-button { background: #f6f8fb; }
     .gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
     .gallery-controls[hidden], .gallery-slide[hidden] { display: none; }
@@ -243,15 +243,17 @@
             <p class="details"><strong>Technologies:</strong> Java, Spring / Spring Boot, Apache Wicket, Google Cloud Platform, Pub/Sub and APIs.</p>
             <p class="project-links"><a href="https://www.unimarket.com/">Unimarket website</a></p>
             </div>
-            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Unimarket" aria-label="Unimarket screenshots from official product documentation">
-              <button class="project-image-button" type="button" aria-label="Enlarge Unimarket screenshot" aria-haspopup="dialog">
-                <img class="gallery-slide" src="assets/projects/unimarket/line-items.png" width="1910" height="744" loading="lazy" alt="Unimarket requisition line items, account coding and totals, shown in official product documentation" data-caption="Requisition items · Unimarket Help">
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Unimarket" aria-label="Unimarket official product illustrations and screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge Unimarket image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="assets/projects/unimarket/eprocurement.webp" width="1440" height="875" loading="lazy" alt="Official Unimarket eProcurement illustration showing requisitions, tasks and approval workflows" data-caption="Procurement workflows · Unimarket">
+                <img class="gallery-slide" src="assets/projects/unimarket/marketplace.webp" width="1440" height="889" loading="lazy" alt="Official Unimarket Marketplace illustration showing suppliers, shopping and spend analysis" data-caption="Marketplace · Unimarket" hidden>
+                <img class="gallery-slide" src="assets/projects/unimarket/line-items.png" width="1910" height="744" loading="lazy" alt="Unimarket requisition line items, account coding and totals, shown in official product documentation" data-caption="Requisition items · Unimarket Help" hidden>
                 <img class="gallery-slide" src="assets/projects/unimarket/approvals.png" width="2213" height="888" loading="lazy" alt="Unimarket approval chain and approval status, shown in official product documentation" data-caption="Approval workflow · Unimarket Help" hidden>
               </button>
               <figcaption class="gallery-controls" hidden>
-                <button type="button" data-previous aria-label="Previous Unimarket screenshot">&#8592;</button>
+                <button type="button" data-previous aria-label="Previous Unimarket image">&#8592;</button>
                 <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
-                <button type="button" data-next aria-label="Next Unimarket screenshot">&#8594;</button>
+                <button type="button" data-next aria-label="Next Unimarket image">&#8594;</button>
               </figcaption>
             </figure>
           </li>
