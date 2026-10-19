@@ -105,6 +105,14 @@
     .recommendation figcaption strong { display: block; color: var(--text); }
     .recommendation-note { font-size: 14px; color: var(--muted); }
     @media print { .recommendation { break-inside: avoid; } }
+
+    #contact-toggle { padding: 0; border: 0; background: none; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .contact-panel { margin-top: 18px; }
+    .contact-panel[hidden], .contact-copy-fallback[hidden] { display: none; }
+    #contact-address { display: block; width: 320px; max-width: 100%; height: auto; margin-bottom: 10px; }
+    #copy-contact { padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
+    #contact-status { margin: 8px 0 0; color: var(--muted); font-size: 13px; }
+    .contact-copy-fallback { width: min(100%, 360px); margin-top: 8px; padding: 8px; font: inherit; }
   </style>
 </head>
 <body>
@@ -113,7 +121,14 @@
     <header>
       <h1>Artem Muravev</h1>
       <p class="subtitle">Contract software developer · Auckland, Hamilton, Northern Waikato, New Zealand</p>
-      <nav aria-label="Page sections"><a href="#services">What I offer</a><a href="#experience">Experience &amp; strengths</a><a href="#projects">Projects</a><a href="#recommendations">Recommendations</a></nav>
+      <nav aria-label="Page sections"><a href="#services">What I offer</a><a href="#experience">Experience &amp; strengths</a><a href="#projects">Projects</a><a href="#recommendations">Recommendations</a><button id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-panel">Contact me</button></nav>
+      <div id="contact-panel" class="contact-panel" hidden>
+        <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy address to copy it with [at] in place of the at sign."></canvas>
+        <button id="copy-contact" type="button">Copy address</button>
+        <p id="contact-status" role="status" aria-live="polite"></p>
+        <input id="contact-copy-fallback" class="contact-copy-fallback" type="text" aria-label="Email address for manual copying" readonly hidden>
+      </div>
+      <noscript><p>Enable JavaScript to display contact details.</p></noscript>
     </header>
 
     <main id="main">
@@ -131,7 +146,6 @@
           <li><strong>Engineering and industrial software:</strong> equipment interfaces, monitoring, control and communication with hardware.</li>
         </ul>
         <p>Bring me the problem you need to solve. I can help define a practical scope, develop the solution and hand over the code and documentation. Available remotely, with hybrid work in Auckland or Hamilton.</p>
-        <a class="action" href="mailto:artem.mouraviev@gmail.com?subject=Software%20project%20enquiry">Discuss your project by email</a>
       </section>
 
       <section id="experience" aria-labelledby="experience-title">
@@ -668,7 +682,6 @@
     </main>
 
     <footer>
-      <p><strong>Have a specific project in mind?</strong> <a class="email" href="mailto:artem.mouraviev@gmail.com">artem.mouraviev@gmail.com</a></p>
       <p>Artem Muravev · New Zealand · <a href="https://github.com/ilinic">GitHub</a></p>
     </footer>
   </div>
@@ -684,6 +697,53 @@
       <button type="button" data-next aria-label="Next screenshot">&#8594;</button>
     </div>
   </dialog>
+  <script>
+
+    (() => {
+      const toggle = document.getElementById('contact-toggle');
+      const panel = document.getElementById('contact-panel');
+      const canvas = document.getElementById('contact-address');
+      const copy = document.getElementById('copy-contact');
+      const status = document.getElementById('contact-status');
+      const fallback = document.getElementById('contact-copy-fallback');
+      const address = () => String.fromCharCode(97,114,116,101,109,46,109,111,117,114,97,118,105,101,118,64,103,109,97,105,108,46,99,111,109);
+      const copyText = () => address().replace(String.fromCharCode(64), ' [at] ');
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        panel.hidden = expanded;
+        if (!expanded) {
+          const context = canvas.getContext('2d');
+          if (context) {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+            context.font = '32px Arial, Helvetica, sans-serif';
+            context.fillStyle = '#20252b';
+            context.textBaseline = 'middle';
+            context.fillText(address(), 0, canvas.height / 2);
+          } else {
+            fallback.value = copyText();
+            fallback.hidden = false;
+          }
+        } else {
+          status.textContent = '';
+          fallback.value = '';
+          fallback.hidden = true;
+        }
+      });
+      copy.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(copyText());
+          status.textContent = 'Copied with [at] instead of @. Replace [at] with @ before sending.';
+        } catch {
+          fallback.value = copyText();
+          fallback.hidden = false;
+          fallback.focus();
+          fallback.select();
+          status.textContent = 'Copy the selected address, then replace [at] with @ before sending.';
+        }
+      });
+    })();
+  </script>
   <script>
     const imageDialog = document.querySelector('.gallery-dialog');
     let activeGallery;
