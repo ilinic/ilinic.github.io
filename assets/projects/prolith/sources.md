@@ -19,3 +19,11 @@ The portfolio describes Artem's research and development leadership through Mira
 - Extracted unchanged from the native embedded image on slide 3, "Comprehensive EUV Modeling in PROLITH". Original image: 430 x 329 pixels.
 
 These are genuine public simulation illustrations, not generated images or invented application interfaces. Product images belong to KLA.
+
+## AMDD description
+
+- Artem recalled his work on AMDD at KLA-Tencor. His specific role on AMDD is not expanded beyond participation.
+- Full name: Automated Mask Defect Disposition System.
+- KLA-Tencor authors describe the system's use of PROLITH technology to predict the lithographic significance of reticle defects in the SPIE 2006 abstract "Automated mask defect disposition system for reticle printability evaluation": https://spie.org/Documents/ConferencesExhibitions/ml06-abstracts.pdf
+- The production evaluation explains modelling defective and reference inspection images under wafer exposure conditions to judge reticle fitness for use: https://www.vde-verlag.de/proceedings-de/563032010.html
+- The gallery images above illustrate PROLITH; they are not presented as AMDD screenshots.
