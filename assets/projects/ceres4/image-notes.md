@@ -1,5 +1,14 @@
 # CERES 4 gallery
 
+## Plant monitor composite
+
+`rectification-equipment-hmi.png` replaces the gallery's original render. Built-in ImageGen placed the CERES 4 operator interface into the existing small tilted monitor at Artem's request. The untouched render is retained as `rectification-equipment.png`.
+
+### Final prompt
+
+Localized image compositing edit. First reference is the EDIT TARGET: full portrait engineering render of a three-column rectification plant. Second reference is the INSERT SOURCE: the actual dark CERES 4.0 operator application screenshot. Replace ONLY the small light active display area of the existing machine-mounted monitor near the lower left of the plant (approximately x=317..383, y=1073..1140 in the 1122x1402 target). Scale down and perspective-warp the second reference's dark application CONTENT (exclude the gray Windows title bar) so it sits naturally flush inside that existing tilted screen. Use the actual recognizable interface structure with the three-column plant diagram on the left and rows of control buttons on the right. Keep the monitor's original size, exact position, tilt, frame, bezel, navigation buttons, mount and cables unchanged. Do not enlarge the monitor. The inserted UI must fill the active screen bounded by its original bezel, with appropriate subtle screen reflections and brightness. Absolutely preserve all equipment, three columns, stainless framework, pipes, valves, pumps, floor, lighting, shadows, camera and full composition outside this tiny screen region. Do not add any monitor, inset, annotation, banner or title. Do not crop, zoom, redesign or alter the plant geometry. No new text anywhere. Output the full original portrait plant render with only its monitor screen content changed.
+
+
 All product functionality and technology details follow Artem's account: Java application on Linux, Modbus communication with low-level automation, Google Firebase cloud telemetry, CODESYS and ST function blocks, automatic operating modes, protection logic, automatic shutdown, parameter archive and charts.
 
 - `rectification-equipment.png`: user-supplied three-column equipment render, copied unchanged.
