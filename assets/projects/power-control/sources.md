@@ -9,7 +9,16 @@ PowerManagerII is documented as Eaton's remote management software for DC power 
 - Manufacturer's software page: https://www.eaton.com/ar/es-mx/catalog/dc-power-solutions/dc-remote-control-software-PowerManagerII.html
 - The visible portfolio link leads to Eaton's English controller/power-system page, which also lists PowerManagerII software: https://www.eaton.com/us/en-us/catalog/dc-power-solutions/sc300-system-controller.html
 
-## Images
+## Current gallery images
+
+Source: Eaton Corporation, Telecommunications Solutions Division, "PowerManagerII Remote Management Software Help", Issue 5A, August 2008. Manufacturer-authored manual retrieved from distributor Netsphere: https://www.netsphere.com.hk/Downloads/Software/Eaton/PowerManagerII/PowerManagerII_Manual_5A.pdf
+
+- `power-system-overview.jpg`: unchanged native embedded image on PDF page 45 (printed page 35), "Browser Views". Original 827 x 766 pixels.
+- `site-browser.jpg`: unchanged native embedded image on PDF page 96 (printed page 86), "Adding, Changing, or Deleting an Item Icon". Original 827 x 598 pixels.
+
+Extracted directly from the PDF image objects using pypdf, with no generated content, resizing or visual edits. These replace the small catalogue figures below, which Artem rejected for poor readability.
+
+## Superseded catalogue images
 
 The two English screenshots are published in Eaton DC Catalogue, July 2010, page 35, "PowerManagerII Control and Monitoring Software". Document publisher: Eaton. Copy retrieved from distributor Tisab: https://tisab-inzenjering.rs/pdf/napajanje/Eaton_DC_Catalogue_July2010.pdf
 
