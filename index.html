@@ -71,6 +71,10 @@
     footer { padding-top: 22px; color: var(--muted); font-size: 13px; }
     footer p { margin-bottom: 6px; }
     .email { overflow-wrap: anywhere; }
+    .back-to-top { position: fixed; right: 22px; bottom: 22px; z-index: 10; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #c8d0d8; border-radius: 50%; background: rgb(255 255 255 / 94%); color: var(--link); box-shadow: 0 4px 14px rgb(32 37 43 / 16%); font-size: 22px; line-height: 1; text-decoration: none; opacity: 0; visibility: hidden; transform: translateY(8px); transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+    .back-to-top:hover { background: #f0f4f8; }
+    .back-to-top:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
     @media (max-width: 600px) {
       .page { padding: 25px 20px 20px; }
       h1 { font-size: 28px; }
@@ -139,8 +143,8 @@
     <main id="main">
       <section id="services" aria-labelledby="services-title">
         <h2 id="services-title">1. Software development for clearly scoped projects</h2>
-        <p class="lead">I help small and growing businesses turn a specific software need into a working solution. I am available for <strong>short-term contracts and projects with a clear scope and defined deliverables.</strong></p>
-        <p><strong>Modern AI tools have changed the economics of software development.</strong> They make it possible to build many types of software substantially faster and at lower cost, opening up opportunities for smaller businesses to develop custom tools and products.</p>
+        <p class="lead">I help businesses turn a specific software need into a working solution. I am available for <strong>short-term contracts and projects with a clear scope and defined deliverables.</strong></p>
+        <p><strong>Modern AI tools have changed the economics of software development.</strong> They make it possible to build many types of software substantially faster and at lower cost, opening up opportunities for businesses to develop custom tools and products.</p>
         <p><strong>My advantage is the breadth of experience behind those tools.</strong> I bring <strong>25+ years across software development, architecture, engineering, technical leadership and IT sales</strong>. That background lets me apply AI to a wide range of software products: understand the business problem, choose the technology, design the system and work through the details needed to make it function.</p>
         <p>I use AI coding assistants and agents throughout implementation, analysis, debugging, testing and documentation. Combined with hands-on experience across industries, this gives me the flexibility to take a defined project from requirements and architecture through development and handover.</p>
         <p>Typical assignments include:</p>
@@ -702,8 +706,8 @@
       <button type="button" data-next aria-label="Next screenshot">&#8594;</button>
     </div>
   </dialog>
+  <a class="back-to-top" href="#main" aria-label="Back to top" title="Back to top">&#8593;</a>
   <script>
-
     (() => {
       const toggle = document.getElementById('contact-toggle');
       const panel = document.getElementById('contact-panel');
@@ -758,8 +762,10 @@
         }
       });
     })();
-  </script>
-  <script>
+    const backToTop = document.querySelector('.back-to-top');
+    const updateBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 420);
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
     const imageDialog = document.querySelector('.gallery-dialog');
     let activeGallery;
     document.querySelectorAll('[data-gallery]').forEach(gallery => {
