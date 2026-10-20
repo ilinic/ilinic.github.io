@@ -71,8 +71,8 @@
     footer { padding-top: 22px; color: var(--muted); font-size: 13px; }
     footer p { margin-bottom: 6px; }
     .email { overflow-wrap: anywhere; }
-    .back-to-top { position: fixed; left: 50%; top: 50%; z-index: 10; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #c8d0d8; border-radius: 50%; background: rgb(255 255 255 / 94%); color: var(--link); box-shadow: 0 4px 14px rgb(32 37 43 / 16%); font-size: 22px; line-height: 1; text-decoration: none; opacity: 0; visibility: hidden; transform: translate(-50%, calc(-50% + 8px)); transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease; }
-    .back-to-top.visible { opacity: 1; visibility: visible; transform: translate(-50%, -50%); }
+    .back-to-top { position: fixed; left: 50%; bottom: 22px; z-index: 10; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #c8d0d8; border-radius: 50%; background: rgb(255 255 255 / 94%); color: var(--link); box-shadow: 0 4px 14px rgb(32 37 43 / 16%); font-size: 22px; line-height: 1; text-decoration: none; opacity: 0; visibility: hidden; transform: translate(-50%, 8px); transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
     .back-to-top:hover { background: #f0f4f8; }
     .back-to-top:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
     @media (max-width: 600px) {
