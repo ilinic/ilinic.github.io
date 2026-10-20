@@ -107,9 +107,10 @@
     @media print { .recommendation { break-inside: avoid; } }
 
     #contact-toggle { padding: 0; border: 0; background: none; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-    .contact-panel { display: flex; align-items: center; flex-wrap: nowrap; gap: 14px; margin-top: 18px; min-height: 38px; max-width: 100%; overflow-x: auto; }
+    .contact-panel { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 18px; max-width: 100%; }
+    .contact-email-row { display: flex; align-items: center; gap: 8px; min-height: 38px; max-width: 100%; overflow-x: auto; }
     .contact-panel[hidden], .contact-copy-fallback[hidden] { display: none; }
-    #contact-address { display: block; width: 300px; height: auto; flex: 0 0 300px; }
+    #contact-address, #contact-phone { display: block; height: 28px; flex: 0 0 auto; }
     #copy-contact { flex: 0 0 auto; white-space: nowrap; padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
     #contact-status { flex: 0 0 150px; min-height: 22px; margin: 0; color: var(--muted); font-size: 13px; white-space: nowrap; }
     .contact-copy-fallback { width: min(100%, 360px); margin-top: 8px; padding: 8px; font: inherit; }
@@ -123,9 +124,12 @@
       <p class="subtitle">Contract software developer · Auckland, Hamilton, Northern Waikato, New Zealand</p>
       <nav aria-label="Page sections"><a href="#services">What I offer</a><a href="#experience">Experience &amp; strengths</a><a href="#projects">Projects</a><a href="#recommendations">Recommendations</a><button id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-panel">Contact me</button></nav>
       <div id="contact-panel" class="contact-panel" hidden>
-        <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy address to copy it."></canvas>
-        <button id="copy-contact" type="button">Copy address</button>
-        <p id="contact-status" role="status" aria-live="polite"></p>
+        <canvas id="contact-phone" width="320" height="56" role="img" aria-label="Phone number"></canvas>
+        <div class="contact-email-row">
+          <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy address to copy it."></canvas>
+          <button id="copy-contact" type="button">Copy address</button>
+          <p id="contact-status" role="status" aria-live="polite"></p>
+        </div>
         <input id="contact-copy-fallback" class="contact-copy-fallback" type="text" aria-label="Email address for manual copying" readonly hidden>
       </div>
       <noscript><p>Enable JavaScript to display contact details.</p></noscript>
@@ -707,20 +711,30 @@
       const status = document.getElementById('contact-status');
       const fallback = document.getElementById('contact-copy-fallback');
       const address = () => String.fromCharCode(97,114,116,101,109,46,109,111,117,114,97,118,105,101,118,64,103,109,97,105,108,46,99,111,109);
+      const phone = () => String.fromCharCode(48,50,50,32,53,56,49,32,48,52,56,50);
       const copyText = () => address();
+      const drawContact = (target, text) => {
+        const context = target.getContext('2d');
+        if (!context) return false;
+        const font = '32px Arial, Helvetica, sans-serif';
+        context.font = font;
+        const width = Math.ceil(context.measureText(text).width / 2) + 2;
+        target.width = width * 2;
+        target.height = 56;
+        target.style.width = width + 'px';
+        context.font = font;
+        context.fillStyle = '#20252b';
+        context.textBaseline = 'middle';
+        context.fillText(text, 0, target.height / 2);
+        return true;
+      };
       toggle.addEventListener('click', () => {
         const expanded = toggle.getAttribute('aria-expanded') === 'true';
         toggle.setAttribute('aria-expanded', String(!expanded));
         panel.hidden = expanded;
         if (!expanded) {
-          const context = canvas.getContext('2d');
-          if (context) {
-            context.clearRect(0, 0, canvas.width, canvas.height);
-            context.font = '32px Arial, Helvetica, sans-serif';
-            context.fillStyle = '#20252b';
-            context.textBaseline = 'middle';
-            context.fillText(address(), 0, canvas.height / 2);
-          } else {
+          drawContact(document.getElementById('contact-phone'), 'Phone: ' + phone());
+          if (!drawContact(canvas, address())) {
             fallback.value = copyText();
             fallback.hidden = false;
           }
