@@ -107,12 +107,13 @@
     @media print { .recommendation { break-inside: avoid; } }
 
     #contact-toggle { padding: 0; border: 0; background: none; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
-    .contact-panel { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; margin-top: 18px; max-width: 100%; }
+    .contact-panel { margin-top: 18px; max-width: 100%; }
     .contact-email-row { display: flex; align-items: center; gap: 8px; min-height: 38px; max-width: 100%; overflow-x: auto; }
     .contact-panel[hidden], .contact-copy-fallback[hidden] { display: none; }
     #contact-address, #contact-phone { display: block; height: 28px; flex: 0 0 auto; }
+    #contact-phone { margin-right: 8px; }
     #copy-contact { flex: 0 0 auto; white-space: nowrap; padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
-    #contact-status { flex: 0 0 150px; min-height: 22px; margin: 0; color: var(--muted); font-size: 13px; white-space: nowrap; }
+    #contact-status { flex: 0 0 150px; min-height: 22px; margin: 0; color: var(--muted); font-size: 14px; white-space: nowrap; }
     .contact-copy-fallback { width: min(100%, 360px); margin-top: 8px; padding: 8px; font: inherit; }
   </style>
 </head>
@@ -124,10 +125,10 @@
       <p class="subtitle">Contract software developer · Auckland, Hamilton, Northern Waikato, New Zealand</p>
       <nav aria-label="Page sections"><a href="#services">What I offer</a><a href="#experience">Experience &amp; strengths</a><a href="#projects">Projects</a><a href="#recommendations">Recommendations</a><button id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-panel">Contact me</button></nav>
       <div id="contact-panel" class="contact-panel" hidden>
-        <canvas id="contact-phone" width="320" height="56" role="img" aria-label="Phone number"></canvas>
         <div class="contact-email-row">
-          <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy address to copy it."></canvas>
-          <button id="copy-contact" type="button">Copy address</button>
+          <canvas id="contact-phone" width="320" height="56" role="img" aria-label="Phone number"></canvas>
+          <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy email to copy it."></canvas>
+          <button id="copy-contact" type="button">Copy email</button>
           <p id="contact-status" role="status" aria-live="polite"></p>
         </div>
         <input id="contact-copy-fallback" class="contact-copy-fallback" type="text" aria-label="Email address for manual copying" readonly hidden>
@@ -716,7 +717,7 @@
       const drawContact = (target, text) => {
         const context = target.getContext('2d');
         if (!context) return false;
-        const font = '32px Arial, Helvetica, sans-serif';
+        const font = '28px Arial, Helvetica, sans-serif';
         context.font = font;
         const width = Math.ceil(context.measureText(text).width / 2) + 2;
         target.width = width * 2;
@@ -734,7 +735,7 @@
         panel.hidden = expanded;
         if (!expanded) {
           drawContact(document.getElementById('contact-phone'), 'Phone: ' + phone());
-          if (!drawContact(canvas, address())) {
+          if (!drawContact(canvas, 'Email: ' + address())) {
             fallback.value = copyText();
             fallback.hidden = false;
           }
@@ -747,7 +748,7 @@
       copy.addEventListener('click', async () => {
         try {
           await navigator.clipboard.writeText(copyText());
-          status.textContent = 'Email address copied.';
+          status.textContent = 'Email copied.';
         } catch {
           fallback.value = copyText();
           fallback.hidden = false;
