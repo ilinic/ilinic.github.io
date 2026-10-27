@@ -3,13 +3,24 @@
 The portfolio entry covers rectification automation and the embedded controller HMI. Stack wording (CODESYS and Structured Text) follows Artem's explicit description. Desktop HMI work is reserved for a separate entry.
 
 - `rectification-equipment.png`: user-supplied engineering render, copied unchanged.
-- `rectification-hmi-en.png`: English presentation edit of user-supplied RK.png.
-- `continuous-column-hmi-en.png`: English presentation edit of user-supplied NBK.png.
+- `rectification-hmi-en.png`: current Ceres PLC rectification HMI demonstration, rendered at 480 × 320 with short English labels and example readings.
+- `continuous-column-hmi-en.png`: current Ceres PLC continuous-column HMI demonstration, rendered at 480 × 320 with short English labels and example readings.
 - `programmable-controller-en.png`: anonymized English presentation edit of the manufacturer's product photo, https://owen.ru/uploads/613/pr225_iso2.png , discovered on https://owen.ru/upl_files/export/catalog/product.php?cat=plc&prod=pr225&sub=programmiruemie_rele . Generic illustrative screen, not a CERES screenshot or an assertion of firmware compatibility. Manufacturer and model markings removed at Artem's request.
 
-The three edits used the built-in ImageGen tool. The HMI edits translate labels while preserving the original plain layout, equipment views and readings. The device image retains transparency. Unedited user originals remain untouched.
+The two HMI images come from the maintained PR225 screen layout in
+[CeresMobile](https://github.com/ilinic/CeresMobile/tree/main/docs/design/pr225/en).
+Reproduce them with `node docs/design/pr225/render.cjs --lang=en`; the website
+uses the lossless `rk-preview.png` and `nbk-preview.png` outputs. The layout,
+value positions, status indicators and equipment renders match the current
+controller design. Readings are demonstration values. CC means continuous
+column; RC means rectification column. The original Russian controller
+backgrounds remain available in the source project.
 
-## Final edit prompts
+The device photo was edited with the built-in ImageGen tool and retains
+transparency. The equipment render is unchanged. The old white HMI presentation
+edits have been replaced by the current dark Ceres PLC design.
+
+## Historical ImageGen prompts (previous HMI images and device photo)
 
 ### HMI 1
 
