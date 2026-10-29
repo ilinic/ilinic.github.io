@@ -51,6 +51,7 @@
     .project-image-button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #111; cursor: zoom-in; }
     .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: var(--gallery-ratio, 2281 / 1336); object-fit: contain; }
     .project-gallery-wide { --gallery-ratio: 16 / 9; }
+    .project-gallery-ai { --gallery-ratio: 960 / 590; }
     .project-gallery-light { --gallery-ratio: 8 / 5; }
     .project-gallery-light .project-image-button { background: #f6f8fb; }
     .gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
@@ -230,6 +231,26 @@
         <h2 id="projects-title">3. Projects and engineering work</h2>
         <p class="summary">Examples across AI tools, enterprise platforms, web and mobile applications, industrial control, 3D engineering software, video streaming, security, scientific computing and education. Each entry describes the work and the technologies involved.</p>
         <ol class="projects">
+          <li class="project-with-gallery" id="industrial-ai-assistant">
+            <div>
+              <h3>Industrial AI Operator Assistant — conversational guidance and control</h3>
+              <p>I integrated an OpenAI-powered voice assistant into the operator interface of a complex industrial installation. Operators can ask about the equipment, its current state, historical behaviour or operating procedures in natural language, without leaving the control screen.</p>
+              <p>Through Model Context Protocol (MCP) tools, the assistant can consult <strong>live measurements and equipment status</strong>, a <strong>local process-history archive</strong>, and a <strong>technical knowledge library</strong> of equipment manuals and procedures. It offers both single-question Q&amp;A and continuous voice dialogue, with an optional text/debug window showing the conversation and tool activity.</p>
+              <p>Two configurable authority modes separate guidance from action. In <strong>advisory mode</strong>, the assistant identifies and highlights relevant interface controls but cannot operate the equipment. In <strong>authorized control mode</strong>, it can issue permitted commands through the application's control tools. The OpenAI interface handles conversational reasoning and voice interaction; MCP connects that intelligence to operational data and actions.</p>
+              <p class="details"><strong>Focus:</strong> conversational HMI, operator assistance, OpenAI integration, MCP tool interfaces, local historical data, technical documentation and permission-controlled operations.</p>
+            </div>
+            <figure class="project-gallery project-gallery-ai" data-gallery data-gallery-title="Industrial AI Operator Assistant" aria-label="Industrial AI operator interface and system architecture">
+              <button class="project-image-button" type="button" aria-label="Enlarge Industrial AI Operator Assistant image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="assets/projects/industrial-ai/ai-assistant-context-en.webp" width="1597" height="985" loading="lazy" alt="Close-up of AI Assistant microphone and stop buttons with adjacent Product, Drain and process controls" data-caption="AI assistant alongside industrial HMI controls">
+                <img class="gallery-slide" src="assets/projects/industrial-ai/architecture.svg" width="960" height="590" loading="lazy" alt="OpenAI-powered industrial assistant architecture connecting the operator interface to MCP tools, live readings, local history, documentation and permission-controlled actions" data-caption="OpenAI and MCP integration architecture" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Industrial AI image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Industrial AI image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
           <li class="project-with-gallery" id="researchtube">
             <div>
               <h3>ResearchTube — connecting ChatGPT with YouTube and the web</h3>

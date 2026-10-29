@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="960" height="590" viewBox="0 0 960 590" role="img" aria-labelledby="title desc">
+  <title id="title">Industrial AI operator assistant architecture</title>
+  <desc id="desc">An operator interface connects to OpenAI models and an MCP integration layer. Tools provide current equipment readings, local process history, technical documentation, and configurable control operations. Advisory and authorized control modes define what the assistant is allowed to do.</desc>
+  <defs>
+    <style>
+      .heading { font: 700 25px Arial, Helvetica, sans-serif; fill: #172838; }
+      .subheading { font: 400 14px Arial, Helvetica, sans-serif; fill: #687889; }
+      .card-title { font: 700 18px Arial, Helvetica, sans-serif; fill: #18334b; }
+      .card-text { font: 400 14px Arial, Helvetica, sans-serif; fill: #4d6071; }
+      .label { font: 700 13px Arial, Helvetica, sans-serif; fill: #175ca4; letter-spacing: .2px; }
+      .mode-title { font: 700 16px Arial, Helvetica, sans-serif; fill: #18334b; }
+      .mode-text { font: 400 13px Arial, Helvetica, sans-serif; fill: #536779; }
+      .line { fill: none; stroke: #7190ad; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+    <marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto-start-reverse">
+      <path d="M0 0 L8 4 L0 8" fill="none" stroke="#7190ad" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" />
+    </marker>
+  </defs>
+  <rect width="960" height="590" fill="#ffffff"/>
+  <text class="heading" x="48" y="53">AI operator assistance for industrial equipment</text>
+  <text class="subheading" x="48" y="78">Natural-language interaction with live operations, process history and technical knowledge</text>
+
+  <!-- Conversation interface and cloud intelligence -->
+  <rect x="48" y="117" width="395" height="121" rx="13" fill="#f4f8fc" stroke="#c6d8e9" stroke-width="1.5"/>
+  <rect x="60" y="130" width="5" height="94" rx="2.5" fill="#175ca4"/>
+  <text class="card-title" x="82" y="151">Industrial operator HMI</text>
+  <text class="card-text" x="82" y="179">One-shot voice Q&amp;A  ·  Continuous dialogue</text>
+  <text class="card-text" x="82" y="203">Microphone / speaker  ·  Optional text transcript</text>
+
+  <rect x="517" y="117" width="395" height="121" rx="13" fill="#f4f8fc" stroke="#c6d8e9" stroke-width="1.5"/>
+  <rect x="529" y="130" width="5" height="94" rx="2.5" fill="#175ca4"/>
+  <text class="card-title" x="551" y="151">OpenAI voice &amp; reasoning API</text>
+  <text class="card-text" x="551" y="179">Speech interaction and conversation context</text>
+  <text class="card-text" x="551" y="203">Model-selected tool calls and spoken replies</text>
+  <path class="line" d="M451 177 H508" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+
+  <!-- Access to tools -->
+  <path class="line" d="M715 239 V263" marker-end="url(#arrow)"/>
+  <rect x="212" y="274" width="536" height="62" rx="12" fill="#175ca4"/>
+  <text x="480" y="300" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="700" fill="#fff">MCP server</text>
+  <text x="480" y="321" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#e5f1ff">Structured telemetry, history, knowledge and control tools</text>
+  <path class="line" d="M480 336 V355 H148 V374 M480 355 H370 V374 M480 355 H592 V374 M480 355 H812 V374" marker-end="url(#arrow)"/>
+
+  <!-- Four capabilities -->
+  <g>
+    <rect x="48" y="381" width="200" height="94" rx="11" fill="#fbfcfe" stroke="#cbd8e4" stroke-width="1.5"/>
+    <text class="card-title" x="65" y="413" font-size="17">Current readings</text>
+    <text class="card-text" x="65" y="438">Sensors, equipment</text>
+    <text class="card-text" x="65" y="456">states and alarms</text>
+  </g>
+  <g>
+    <rect x="269" y="381" width="200" height="94" rx="11" fill="#fbfcfe" stroke="#cbd8e4" stroke-width="1.5"/>
+    <text class="card-title" x="286" y="413" font-size="17">Local history</text>
+    <text class="card-text" x="286" y="438">Measurements, trends</text>
+    <text class="card-text" x="286" y="456">and past events</text>
+  </g>
+  <g>
+    <rect x="490" y="381" width="200" height="94" rx="11" fill="#fbfcfe" stroke="#cbd8e4" stroke-width="1.5"/>
+    <text class="card-title" x="507" y="413" font-size="17">Knowledge library</text>
+    <text class="card-text" x="507" y="438">Local manuals, SOPs</text>
+    <text class="card-text" x="507" y="456">and process reference</text>
+  </g>
+  <g>
+    <rect x="711" y="381" width="201" height="94" rx="11" fill="#fbfcfe" stroke="#cbd8e4" stroke-width="1.5"/>
+    <text class="card-title" x="728" y="413" font-size="17">Control tools</text>
+    <text class="card-text" x="728" y="438">Guidance or permitted</text>
+    <text class="card-text" x="728" y="456">equipment commands</text>
+  </g>
+
+  <!-- Configurable authority modes -->
+  <text class="label" x="48" y="514">CONFIGURABLE OPERATING AUTHORITY</text>
+  <rect x="48" y="528" width="423" height="46" rx="9" fill="#edf6ff" stroke="#c1d9ee"/>
+  <text class="mode-title" x="63" y="547">Advisory mode</text>
+  <text class="mode-text" x="63" y="564">Highlights relevant controls; does not operate equipment</text>
+  <rect x="489" y="528" width="423" height="46" rx="9" fill="#edf6ff" stroke="#c1d9ee"/>
+  <text class="mode-title" x="504" y="547">Authorized control mode</text>
+  <text class="mode-text" x="504" y="564">Can issue permitted commands through the control interface</text>
+</svg>
