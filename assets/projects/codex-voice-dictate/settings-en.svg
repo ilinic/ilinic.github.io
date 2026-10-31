@@ -57,22 +57,21 @@
       <g font-size="16" fill="#253649">
         <rect x="93" y="459" width="20" height="20" rx="4" fill="#1477c9" stroke="#1477c9"/>
         <path d="M98 469l4 4 7-8" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="122" y="475">Russian (ru)</text>
-        <rect x="327" y="459" width="20" height="20" rx="4" fill="#1477c9" stroke="#1477c9"/>
-        <path d="M332 469l4 4 7-8" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
-        <text x="356" y="475">English (en)</text>
+        <text x="122" y="475">English (en)</text>
+        <rect x="327" y="459" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
+        <text x="356" y="475">German (de)</text>
         <rect x="560" y="459" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
-        <text x="589" y="475">German (de)</text>
+        <text x="589" y="475">French (fr)</text>
         <rect x="796" y="459" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
-        <text x="825" y="475">French (fr)</text>
+        <text x="825" y="475">Spanish (es)</text>
         <rect x="93" y="488" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
-        <text x="122" y="504">Spanish (es)</text>
+        <text x="122" y="504">Italian (it)</text>
         <rect x="327" y="488" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
-        <text x="356" y="504">Italian (it)</text>
+        <text x="356" y="504">Portuguese (pt)</text>
         <rect x="560" y="488" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
-        <text x="589" y="504">Portuguese (pt)</text>
+        <text x="589" y="504">Ukrainian (uk)</text>
         <rect x="796" y="488" width="20" height="20" rx="4" fill="#ffffff" stroke="#9aa8b7" stroke-width="1.6"/>
-        <text x="825" y="504">Ukrainian (uk)</text>
+        <text x="825" y="504">Polish (pl)</text>
       </g>
       <path d="M93 519h1005" stroke="#e7ebf0"/>
       <rect x="93" y="536" width="20" height="20" rx="4" fill="#1477c9" stroke="#1477c9"/>
