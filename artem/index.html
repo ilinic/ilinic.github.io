@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Artem Muravev — Software Engineer based in New Zealand. Available for contract, fixed-term and project-based development across Java, cloud platforms, industrial automation, embedded systems, robotics and applied AI. 25+ years of engineering experience.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="canonical" href="https://ilinic.github.io/artem/">
+  <meta property="og:url" content="https://ilinic.github.io/artem/">
+  <meta property="og:title" content="Artem Muravev — Project-Based Software Engineer">
+  <meta property="og:description" content="Contract and project-based engineering work in enterprise Java, cloud software, industrial automation, robotics, embedded systems and applied AI.">
+  <meta property="og:type" content="website">
+  <title>Artem Muravev — Project-Based Software Engineer</title>
+  <style>
+    :root { color-scheme: light; --text: #20252b; --muted: #555f69; --link: #175ca4; --line: #dfe3e7; }
+    * { box-sizing: border-box; }
+    html { scroll-padding-top: 24px; }
+    body { margin: 0; background: #fff; color: var(--text); font-family: Arial, Helvetica, sans-serif; font-size: 16px; line-height: 1.65; }
+    .page { max-width: 940px; margin: 0 auto; padding: 40px 28px 24px; }
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:hover { text-decoration-thickness: 2px; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+    .skip { position: absolute; top: -100px; left: 16px; padding: 10px; background: #fff; }
+    .skip:focus { top: 8px; }
+    header { padding-bottom: 24px; border-bottom: 1px solid var(--line); }
+    h1 { font-size: 32px; line-height: 1.2; margin: 0 0 7px; letter-spacing: -.5px; }
+    .subtitle { margin: 0 0 12px; color: var(--muted); font-size: 17px; }
+    .contact { display: flex; flex-wrap: wrap; gap: 5px 22px; margin: 0; font-size: 14px; }
+    nav { display: flex; flex-wrap: wrap; gap: 8px 24px; margin-top: 19px; font-size: 14px; }
+    main > section { padding: 32px 0; border-bottom: 1px solid var(--line); }
+    h2 { margin: 0 0 18px; font-size: 24px; line-height: 1.35; letter-spacing: -.3px; }
+    h3 { margin: 26px 0 9px; font-size: 18px; line-height: 1.4; }
+    h4 { margin: 19px 0 7px; font-size: 16px; }
+    p { margin: 0 0 13px; }
+    ul { margin: 10px 0 17px; padding-left: 22px; }
+    li { margin-bottom: 6px; }
+    .lead { font-size: 18px; line-height: 1.6; }
+    .summary { color: var(--muted); }
+    .action { display: inline-block; margin-top: 3px; font-weight: bold; }
+    .experience-part + .experience-part { margin-top: 29px; }
+    .education { margin-bottom: 0; }
+    .projects { list-style: none; padding: 0; margin: 0; }
+    .projects > li { margin: 0; padding: 20px 0; border-top: 1px solid var(--line); }
+    .projects > li:first-child { border-top: 0; padding-top: 0; }
+    .projects > li:last-child { padding-bottom: 0; }
+    .projects h3 { margin: 0 0 8px; font-size: 18px; }
+    .projects p { margin-bottom: 9px; }
+    .details, .project-links { font-size: 14px; }
+    .details { color: var(--muted); }
+    .project-links { display: flex; flex-wrap: wrap; gap: 7px 22px; margin: 0; }
+    .project-with-gallery { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 28px; align-items: start; }
+    .project-gallery { min-width: 0; margin: 0; }
+    .project-image-button { display: block; width: 100%; padding: 0; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #111; cursor: zoom-in; }
+    .project-gallery img { display: block; width: 100%; height: auto; aspect-ratio: var(--gallery-ratio, 2281 / 1336); object-fit: contain; }
+    .project-gallery-wide { --gallery-ratio: 16 / 9; }
+    .project-gallery-ai { --gallery-ratio: 960 / 590; }
+    .project-gallery-light { --gallery-ratio: 8 / 5; }
+    .project-gallery-light .project-image-button { background: #f6f8fb; }
+    .gallery-controls { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-top: 8px; }
+    .gallery-controls[hidden], .gallery-slide[hidden] { display: none; }
+    .gallery-controls button, .gallery-close { min-width: 36px; min-height: 36px; padding: 4px 10px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; cursor: pointer; }
+    .gallery-controls button:hover, .gallery-close:hover { background: #f0f4f8; }
+    button:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+    .gallery-caption { color: var(--muted); text-align: center; font-size: 12px; line-height: 1.5; }
+    .gallery-dialog { width: min(1200px, calc(100% - 32px)); max-height: calc(100% - 32px); padding: 16px; border: 1px solid var(--line); border-radius: 8px; color: var(--text); }
+    .gallery-dialog::backdrop { background: rgb(0 0 0 / 75%); }
+    .gallery-dialog-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 12px; }
+    .gallery-dialog-header h3 { margin: 0; }
+    .gallery-dialog img { display: block; max-width: 100%; max-height: 72vh; width: auto; height: auto; margin: auto; }
+    @media (max-width: 760px) {
+      .project-with-gallery { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .project-gallery { width: min(100%, 400px); }
+    }
+    footer { padding-top: 22px; color: var(--muted); font-size: 13px; }
+    footer p { margin-bottom: 6px; }
+    .email { overflow-wrap: anywhere; }
+    .back-to-top { position: fixed; left: 50%; bottom: 22px; z-index: 10; width: 44px; height: 44px; display: grid; place-items: center; border: 1px solid #c8d0d8; border-radius: 50%; background: rgb(255 255 255 / 94%); color: var(--link); box-shadow: 0 4px 14px rgb(32 37 43 / 16%); font-size: 22px; line-height: 1; text-decoration: none; opacity: 0; visibility: hidden; transform: translate(-50%, 8px); transition: opacity .2s ease, visibility .2s ease, transform .2s ease, background .2s ease; }
+    .back-to-top.visible { opacity: 1; visibility: visible; transform: translate(-50%, 0); }
+    .back-to-top:hover { background: #f0f4f8; }
+    .back-to-top:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+    @media (max-width: 600px) {
+      .page { padding: 25px 20px 20px; }
+      h1 { font-size: 28px; }
+      h2 { font-size: 22px; }
+      h3 { font-size: 18px; }
+      .subtitle { font-size: 16px; }
+      .lead { font-size: 17px; }
+      main > section { padding: 26px 0; }
+      nav { gap: 7px 18px; }
+    }
+    @media print {
+      body { font-size: 11pt; color: #000; }
+      .page { max-width: none; padding: 0; }
+      nav, .skip { display: none; }
+      h1 { font-size: 24pt; }
+      h2 { font-size: 16pt; }
+      h3 { font-size: 13pt; }
+      main > section { padding: 18px 0; }
+      .lead { font-size: 12pt; }
+      h2, h3, h4 { break-after: avoid; }
+      .projects > li { break-inside: avoid; }
+      .gallery-controls, .gallery-dialog { display: none; }
+      a { color: #000; }
+    }
+
+    .recommendations { margin: 0 0 20px; }
+    .recommendation { margin: 0 0 28px; }
+    .recommendation:last-child { margin-bottom: 0; }
+    .recommendation blockquote { margin: 10px 0 0; font-size: 16px; line-height: 1.65; }
+    .recommendation blockquote p:last-child { margin-bottom: 0; }
+    .recommendation figcaption { font-size: 14px; color: var(--muted); }
+    .recommendation figcaption strong { display: block; color: var(--text); }
+    .recommendation-note { font-size: 14px; color: var(--muted); }
+    @media print { .recommendation { break-inside: avoid; } }
+
+    #contact-toggle { padding: 0; border: 0; background: none; color: var(--link); font: inherit; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+    .contact-panel { margin-top: 18px; max-width: 100%; }
+    .contact-email-row { display: flex; align-items: center; gap: 8px; min-height: 38px; max-width: 100%; overflow-x: auto; }
+    .contact-panel[hidden], .contact-copy-fallback[hidden] { display: none; }
+    #contact-address, #contact-phone { display: block; height: 28px; flex: 0 0 auto; }
+    #contact-phone { margin-right: 8px; }
+    #copy-contact { flex: 0 0 auto; white-space: nowrap; padding: 6px 12px; border: 1px solid var(--line); border-radius: 4px; background: #fff; color: var(--text); font: inherit; font-size: 14px; cursor: pointer; }
+    #contact-status { flex: 0 0 150px; min-height: 22px; margin: 0; color: var(--muted); font-size: 14px; white-space: nowrap; }
+    .contact-copy-fallback { width: min(100%, 360px); margin-top: 8px; padding: 8px; font: inherit; }
+  </style>
+</head>
+<body id="top">
+  <a class="skip" href="#main">Skip to content</a>
+  <div class="page">
+    <header>
+      <h1>Artem Muravev</h1>
+      <p class="subtitle">Software Engineer · Contract &amp; Project-Based Development · New Zealand</p>
+      <nav aria-label="Page sections"><a href="#services">Project-based work</a><a href="#experience">Experience &amp; strengths</a><a href="#projects">Projects</a><a href="#recommendations">Recommendations</a><button id="contact-toggle" type="button" aria-expanded="false" aria-controls="contact-panel">Contact me</button></nav>
+      <div id="contact-panel" class="contact-panel" hidden>
+        <div class="contact-email-row">
+          <canvas id="contact-phone" width="320" height="56" role="img" aria-label="Phone number"></canvas>
+          <canvas id="contact-address" width="640" height="56" role="img" aria-label="Email address. Use Copy email to copy it."></canvas>
+          <button id="copy-contact" type="button">Copy email</button>
+          <p id="contact-status" role="status" aria-live="polite"></p>
+        </div>
+        <input id="contact-copy-fallback" class="contact-copy-fallback" type="text" aria-label="Email address for manual copying" readonly hidden>
+      </div>
+      <noscript><p>Enable JavaScript to display contact details.</p></noscript>
+    </header>
+
+    <main id="main">
+      <section id="services" aria-labelledby="services-title">
+        <h2 id="services-title">1. Available for project-based engineering work</h2>
+        <p class="lead">I take on <strong>contract, fixed-term and project-based software engineering work</strong> — from focused development tasks to complex technical integrations and working prototypes.</p>
+        <p>My strengths include <strong>enterprise Java / Spring Boot, distributed systems, industrial automation, embedded software, robotics, CAD/CAM and practical AI integration</strong>. I can contribute within an established engineering team or independently deliver a defined technical component.</p>
+        <p><strong>What I bring:</strong> 25+ years of hands-on experience across software engineering, embedded systems, industrial control, cloud platforms and applied AI. I can design the architecture, build early prototypes and connect software to real equipment, from microcontrollers to distributed systems.</p>
+        <p>I use modern AI development tools to accelerate research, prototyping and implementation, while applying engineering judgement to architecture, integration, testing and reliability.</p>
+        <p><strong>Types of assignments:</strong> backend services and integrations, software architecture, cloud and data systems, industrial control and device connectivity, AI-enabled features, technical prototypes, and engineering research. I am interested in clearly scoped work where practical delivery matters.</p>
+        <p>Based in New Zealand and open to project work with local and international teams, including remote collaboration.</p>
+      </section>
+
+      <section id="experience" aria-labelledby="experience-title">
+        <h2 id="experience-title">2. Experience and strengths</h2>
+        <p class="summary"><strong>25+ years in IT, backed by a Master's degree in Mathematics, a PhD and an MBA.</strong> I combine software development, engineering and commercial experience to turn complex requirements into practical solutions.</p>
+
+        <div class="experience-part">
+          <h3>Java, enterprise systems and online platforms</h3>
+          <p><strong>7+ years of hands-on Java development</strong>, spanning business applications, industrial operator interfaces and large-scale, high-traffic online platforms. My experience covers Spring / Spring Boot, distributed microservices, APIs, databases and Google Cloud, as well as web interfaces with Apache Wicket and desktop applications with Swing.</p>
+          <p>I can work across the whole application: backend services, business logic, data, integrations and user-facing features. That means I can develop a new business tool, connect existing systems or deliver a defined piece of functionality within an established platform.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>Embedded systems, industrial automation and engineering software</h3>
+          <p><strong>Extensive experience connecting software with real equipment</strong>, from embedded controller firmware and device communication to operator interfaces, data management and cloud connectivity. Practical applications include:</p>
+          <ul>
+            <li><strong>Process automation:</strong> commercial breweries and distillation / rectification plants.</li>
+            <li><strong>Electrical infrastructure:</strong> monitoring and control of distributed electrical substations.</li>
+            <li><strong>Industrial machinery:</strong> software for industrial and CNC machines, including CAD/CAM applications.</li>
+            <li><strong>Robotics:</strong> programming and control of KUKA six-axis industrial robots.</li>
+            <li><strong>Industrial safety:</strong> control and safety systems requiring high reliability.</li>
+          </ul>
+          <p>My technical background includes C/C++ firmware on STM32 and ATmega, industrial communication including Modbus, robotics, and desktop and remote control applications.</p>
+          <p>This lets me approach an equipment project as a complete system, from controller communication and operating logic to the application people use.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>3D modelling, CAD/CAM and engineering software integration</h3>
+          <p><strong>Experience connecting 3D geometry, engineering design and manufacturing.</strong> My work includes OpenGL graphics, geometric profile development, SolidWorks modelling, software interfaces to engineering packages, and converting geometry into CNC programs and G-code.</p>
+          <p>Experience includes 3D models for ergonomic evaluation. I use SolidWorks confidently, with years of practical modelling experience, and develop integrations through SolidWorks / AutoCAD APIs and VBA.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>Video players, streaming services and social platforms</h3>
+          <p>Experience developing video players, streaming services and social web applications, including media delivery with Wowza Media Server. I can work on the playback experience, service integration and the application around it, combining media functionality with the needs of an online product.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>Video surveillance and security systems</h3>
+          <p>Experience developing <strong>large-scale, distributed and integrated security and video surveillance systems</strong>, covering camera streaming, video recording, archive access and playback.</p>
+          <p>Work includes integration with user databases, card-based access control, gates and vehicle barriers, automatic number-plate recognition (ANPR), and the application logic connecting these components.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>Mathematics, physical modelling and applied research</h3>
+          <p><strong>Applied research in the modelling of physical processes for lithography.</strong> My work covered numerical methods, algorithm stability, numerical accuracy and solvers for partial differential equations, using C/C++ and Mathcad.</p>
+          <p>This experience combines mathematical analysis, numerical experimentation and software implementation, supporting projects that require investigation and scientific modelling.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>Understanding the business and delivering the product</h3>
+          <p>My experience includes architecture, requirements and specification design, team leadership, project management and IT sales. I understand the work on both sides of a project: clarifying what a customer needs, choosing a practical solution, planning delivery and communicating technical decisions.</p>
+          <p>My strength is understanding software architecture, core engineering principles and recurring solutions to IT problems. This helps me assess unfamiliar technologies, learn what a project requires and use modern AI tools to implement an appropriate solution.</p>
+        </div>
+
+        <div class="experience-part">
+          <h3>A broad technical foundation</h3>
+          <p>Experience across current and earlier projects gives me a wide range of tools to draw on. Specific applications are shown in the project examples below.</p>
+          <ul>
+            <li><strong>Enterprise Java:</strong> Java, Spring, Spring Boot, Java EE, Hibernate, Apache Wicket, REST APIs, microservices, RabbitMQ and JUnit.</li>
+            <li><strong>Web and mobile:</strong> PHP, JavaScript, HTML / CSS, Android, Java and Kotlin.</li>
+            <li><strong>AI integration and media:</strong> Python, MCP, Chrome extensions, Chrome DevTools Protocol, asynchronous task processing, FFmpeg, yt-dlp, OpenCV and Wowza Media Server.</li>
+            <li><strong>Cloud and delivery:</strong> Google Cloud Platform, Pub/Sub, AWS, SQS, Aurora, DigitalOcean, Kubernetes and CI/CD.</li>
+            <li><strong>Databases:</strong> MySQL, SQLite, SQL Server, Oracle, Redis and MongoDB.</li>
+            <li><strong>Desktop and embedded software:</strong> C/C++, C++17, STL, Boost, Qt, STM32, ATmega, IAR, Modbus, Windows, Linux, Delphi, ActiveX / COM and NI CVI.</li>
+            <li><strong>Engineering and graphics:</strong> SolidWorks, AutoCAD and their APIs, VBA, 3D geometric modelling, CAD/CAM, CNC / G-code, KUKA six-axis robot programming, OpenGL, Mathcad and GeoServer.</li>
+            <li><strong>Architecture and project delivery:</strong> UML, design patterns, requirements management, RUP, Agile, IBM RequisitePro, Git, Jira, Redmine and MS Project.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects" aria-labelledby="projects-title">
+        <h2 id="projects-title">3. Projects and engineering work</h2>
+        <p class="summary">Examples across AI tools, enterprise platforms, web and mobile applications, industrial control, 3D engineering software, video streaming, security, scientific computing and education. Each entry describes the work and the technologies involved.</p>
+        <ol class="projects">
+          <li class="project-with-gallery" id="codex-voice-dictate">
+            <div>
+              <h3>Codex Voice Dictate — voice input across Windows apps</h3>
+              <p>I built an open-source Windows tray app that transcribes spoken coding instructions with OpenAI and inserts them into Codex, IntelliJ IDEA and other text fields—without an IDE plugin.</p>
+              <p>It supports multiple recognition languages, configurable insert/send shortcuts, explicit field binding and clear tray status indicators.</p>
+              <p class="project-links"><a href="https://github.com/ilinic/Codex_Voice_Dictate">GitHub</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" style="--gallery-ratio: 3 / 2;" data-gallery data-gallery-title="Codex Voice Dictate" aria-label="Codex Voice Dictate settings preview">
+              <button class="project-image-button" type="button" aria-label="Enlarge Codex Voice Dictate settings preview" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/codex-voice-dictate/settings-en.webp" width="1200" height="800" loading="lazy" alt="Illustrative settings window of Codex Voice Dictate with masked API key, IntelliJ IDEA binding, recognition languages, text correction model and keyboard shortcuts" data-caption="Windows settings dialog (illustrative preview)">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Codex Voice Dictate image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Codex Voice Dictate image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="idea-chatgpt-dictate">
+            <div>
+              <h3>IDEA ChatGPT Dictate — voice input for Codex in IntelliJ IDEA</h3>
+              <p>Windows voice typing struggles with mixed-language programming terms. I built an open-source IntelliJ plugin combining OpenAI speech recognition with source-code-aware correction to dictate prompts directly into Codex.</p>
+              <p>Version 1.0 supports multiple languages, two freely configurable keyboard shortcuts (insert only or insert and send), Escape cancellation, localized settings, and a persistent IDE status-bar stage indicator.</p>
+              <p class="project-links"><a href="https://github.com/ilinic/IDEA_ChatGPT_Dictate">GitHub</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" style="--gallery-ratio: 3 / 2;" data-gallery data-gallery-title="IDEA ChatGPT Dictate" aria-label="IDEA ChatGPT Dictate English settings dialog preview">
+              <button class="project-image-button" type="button" aria-label="Enlarge IDEA ChatGPT Dictate settings preview" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/idea-chatgpt-dictate/settings-en.png" width="1200" height="800" loading="lazy" alt="English-language preview of IDEA ChatGPT Dictate settings with masked API key, separate insert and send shortcuts, recognition languages, model selection and optional Codex context" data-caption="English settings dialog (illustrative preview)">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous IDEA ChatGPT Dictate image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next IDEA ChatGPT Dictate image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="industrial-ai-assistant">
+            <div>
+              <h3>Industrial AI Operator Assistant — conversational guidance and control</h3>
+              <p>I added an OpenAI voice assistant to a complex industrial HMI. Through MCP tools, operators can ask about live readings, local history, and a RAG-powered knowledge library of manuals and procedures—either in one-shot Q&amp;A or continuous dialogue.</p>
+              <p>An optional text/debug window shows the exchange. Configurable modes let the AI either highlight controls without acting or issue permitted commands, making complex equipment easier to understand and operate.</p>
+            </div>
+            <figure class="project-gallery project-gallery-ai" data-gallery data-gallery-title="Industrial AI Operator Assistant" aria-label="Industrial AI operator interface and system architecture">
+              <button class="project-image-button" type="button" aria-label="Enlarge Industrial AI Operator Assistant image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/industrial-ai/ai-assistant-context-en-v2.webp" width="1597" height="985" loading="lazy" alt="Close-up of AI Assistant microphone and stop buttons with adjacent Product, Drain and process controls" data-caption="AI assistant alongside industrial HMI controls">
+                <img class="gallery-slide" src="../assets/projects/industrial-ai/architecture.svg" width="960" height="590" loading="lazy" alt="OpenAI-powered industrial assistant architecture connecting the operator interface to MCP tools, live readings, local history, documentation and permission-controlled actions" data-caption="OpenAI and MCP integration architecture" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Industrial AI image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Industrial AI image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="researchtube">
+            <div>
+              <h3>ResearchTube — connecting ChatGPT with YouTube and the web</h3>
+              <p>Much of YouTube's knowledge is inaccessible to ChatGPT. ResearchTube adds video search, comments, subtitles and downloads, automatically sends frames and storyboards into chat, explores sites behind your login, and offers many other tools.</p>
+              <p>I designed and built this free, open-source extension to deeply explore LLM integration with external tools, including browser automation, media processing and other AI tools.</p>
+              <p class="project-links"><a href="https://github.com/ilinic/ResearchTube">GitHub</a></p>
+            </div>
+            <figure class="project-gallery" data-gallery data-gallery-title="ResearchTube" aria-label="ResearchTube screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge ResearchTube screenshot" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/researchtube/youtube-research.png" width="2281" height="1336" loading="lazy" alt="ResearchTube researching a YouTube video in ChatGPT" data-caption="YouTube research in ChatGPT">
+                <img class="gallery-slide" src="../assets/projects/researchtube/website-research.png" width="2281" height="1336" loading="lazy" alt="ResearchTube studying a website and bringing its images into ChatGPT" data-caption="Website research with images in chat" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous ResearchTube screenshot">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next ResearchTube screenshot">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="mobile-hmi">
+            <div>
+              <h3>Mobile HMI — remote rectification control</h3>
+              <p>Monitor temperatures, follow process trends and operate industrial rectification units remotely through the equipment manufacturer's industrial cloud.</p>
+              <p>I chose Dart and Flutter for a shared codebase targeting iOS, Android, macOS, Windows and Linux. Starting with limited experience in the stack, I learned Dart fundamentals, designed the architecture and built the application using modern AI development tools and my background in industrial software.</p>
+            </div>
+            <figure class="project-gallery project-gallery-wide" data-gallery data-gallery-title="Mobile HMI" aria-label="Mobile HMI screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge Mobile HMI screenshot" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/mobile-hmi/equipment-overview-en.png" width="1672" height="941" loading="lazy" alt="Mobile HMI equipment overview with controls and temperature readings" data-caption="Equipment overview">
+                <img class="gallery-slide" src="../assets/projects/mobile-hmi/process-trends-en.png" width="1672" height="941" loading="lazy" alt="Mobile HMI process trends with temperature, heater and pump data" data-caption="Process trends" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Mobile HMI screenshot">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Mobile HMI screenshot">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="unimarket">
+            <div>
+            <h3>Unimarket — enterprise procurement platform</h3>
+            <p>I spent over five years as a full-stack developer at Unimarket, an enterprise procurement platform serving hundreds of thousands of concurrent users across the United States, New Zealand and Australia.</p>
+            <p>My work spanned user interfaces, backend services, business logic, data access and integrations within a high-traffic microservices architecture on Google Cloud, alongside production maintenance and troubleshooting.</p>
+            <p class="details"><strong>Technologies:</strong> Java, Spring / Spring Boot, Apache Wicket, Google Cloud Platform, Pub/Sub and APIs.</p>
+            <p class="project-links"><a href="https://www.unimarket.com/">Unimarket website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Unimarket" aria-label="Unimarket official product illustrations and screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge Unimarket image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/unimarket/eprocurement.webp" width="1440" height="875" loading="lazy" alt="Official Unimarket eProcurement illustration showing requisitions, tasks and approval workflows" data-caption="Procurement workflows · Unimarket">
+                <img class="gallery-slide" src="../assets/projects/unimarket/marketplace.webp" width="1440" height="889" loading="lazy" alt="Official Unimarket Marketplace illustration showing suppliers, shopping and spend analysis" data-caption="Marketplace · Unimarket" hidden>
+                <img class="gallery-slide" src="../assets/projects/unimarket/line-items.png" width="1910" height="744" loading="lazy" alt="Unimarket requisition line items, account coding and totals, shown in official product documentation" data-caption="Requisition items · Unimarket Help" hidden>
+                <img class="gallery-slide" src="../assets/projects/unimarket/approvals.png" width="2213" height="888" loading="lazy" alt="Unimarket approval chain and approval status, shown in official product documentation" data-caption="Approval workflow · Unimarket Help" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Unimarket image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Unimarket image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="inventory-mini">
+            <div>
+              <h3>Inventory Mini — stock management from a smartphone</h3>
+              <p>I built Inventory Mini for a small manufacturer to keep stock records current from a smartphone. A lightweight PHP / MySQL web application works with an Android app: scan a product QR code, record quantity changes, and check stock levels and movement history.</p>
+              <p>Product lists can be loaded and updated from Excel-exported CSV files, making initial setup and adding new items straightforward.</p>
+              <p class="project-links"><a href="https://github.com/ilinic/Inventory-mini">GitHub</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Inventory Mini" aria-label="Inventory Mini screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge Inventory Mini screenshot" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/inventory-mini/qr-scanner-en.png" width="887" height="1774" loading="lazy" alt="Inventory Mini Android QR scanner and stock quantity adjustment" data-caption="Android QR scanner">
+                <img class="gallery-slide" src="../assets/projects/inventory-mini/stock-list-en.png" width="1296" height="1213" loading="lazy" alt="Inventory Mini PHP web interface showing product IDs, names and stock quantities" data-caption="Online stock list" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Inventory Mini screenshot">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Inventory Mini screenshot">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="prolith">
+            <div>
+              <h3>PROLITH — lithography simulation and numerical research</h3>
+              <p>I led research and software development through Mirantis for KLA-Tencor's PROLITH lithography simulator, helping turn physical models into software for investigating semiconductor manufacturing processes.</p>
+              <p>The work covered numerical methods and solvers for partial differential equations, with a focus on algorithm stability, numerical accuracy and validation through computational experiments.</p>
+              <p class="details">Technologies: C/C++, Mathcad and numerical modelling.</p>
+              <p class="project-links"><a href="https://www.kla.com/products/software-solutions/semiconductor#prolith">PROLITH on the KLA website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="PROLITH" aria-label="Public PROLITH simulation examples from KLA">
+              <button class="project-image-button" type="button" aria-label="Enlarge PROLITH image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/prolith/pattern-simulation.jpg" width="800" height="357" loading="lazy" alt="KLA's public PROLITH illustration showing simulated three-dimensional lithographic line profiles" data-caption="Pattern simulation · KLA">
+                <img class="gallery-slide" src="../assets/projects/prolith/three-dimensional-model.jpg" width="430" height="329" loading="lazy" alt="Three-dimensional pattern model from KLA's public PROLITH presentation" data-caption="3D pattern model · KLA" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous PROLITH image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next PROLITH image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="amdd">
+            <div>
+              <h3>AMDD — automated photomask defect assessment</h3>
+              <p>My research and development team also contributed to KLA-Tencor's AMDD (Automated Mask Defect Disposition System). It used PROLITH-based simulation to predict how photomask defects would affect the pattern printed on a wafer and help determine whether a mask was fit for use.</p>
+              <p>By comparing defective and reference images under production exposure conditions, the system supported consistent, automated defect assessment for semiconductor manufacturing.</p>
+              <p class="project-links"><a href="https://www.vde-verlag.de/proceedings-de/563032010.html">AMDD — published product evaluation</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="AMDD" aria-label="Published AMDD defect analysis examples">
+              <button class="project-image-button" type="button" aria-label="Enlarge AMDD image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/amdd/defect-comparison.png" width="900" height="560" loading="lazy" alt="Published AMDD comparison of reference and defective mask inspection images, simulated aerial images and the defect analysis region" data-caption="Defect comparison · KLA-Tencor publication">
+                <img class="gallery-slide" src="../assets/projects/amdd/contour-analysis.png" width="1300" height="670" loading="lazy" alt="Published AMDD comparison of reference and defective resist contours, with edge displacement vectors" data-caption="Contour analysis · KLA-Tencor publication" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous AMDD image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next AMDD image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="ceres">
+            <div>
+              <h3>Ceres PLC — rectification automation</h3>
+              <p>I developed control logic and an embedded HMI for industrial rectification equipment, covering heaters, pumps, temperature and pressure monitoring, and equipment communication.</p>
+              <p>The system uses an integrated controller with a colour display and direct controls operated with physical buttons.</p>
+              <p class="details">Technologies: CODESYS, ST function blocks, Modbus.</p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Ceres PLC" aria-label="Ceres PLC rectification equipment and embedded HMI gallery">
+              <button class="project-image-button" type="button" aria-label="Enlarge Ceres PLC image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/ceres/rectification-equipment.png" width="1672" height="941" loading="lazy" alt="Engineering render of rectification equipment with columns, pumps, pipework and a control cabinet" data-caption="Rectification equipment · engineering render">
+                <img class="gallery-slide" src="../assets/projects/ceres/rectification-hmi-en.png?v=pr225-20261027" width="480" height="320" loading="lazy" alt="Ceres PLC rectification HMI with a silver column diagram, temperature and pressure readings, and pump and heater controls" data-caption="Rectification HMI" hidden>
+                <img class="gallery-slide" src="../assets/projects/ceres/continuous-column-hmi-en.png?v=pr225-20261027" width="480" height="320" loading="lazy" alt="Ceres PLC continuous-column HMI with a silver twin-column diagram, readings, pump controls and refill indicators" data-caption="Continuous-column HMI" hidden>
+                <img class="gallery-slide" src="../assets/projects/ceres/programmable-controller-en.png" width="1254" height="1254" loading="lazy" alt="Programmable controller with a built-in display and physical navigation buttons" data-caption="Programmable controller with built-in HMI" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Ceres PLC image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Ceres PLC image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="ceres4">
+            <div>
+              <h3>CERES 4 — Linux control application for rectification</h3>
+              <p>I developed a Java application for Linux to operate a multi-column rectification plant. It communicates with low-level automation over Modbus, combining an operator HMI with automatic operating modes, built-in protection logic and automatic shutdown.</p>
+              <p>An extensive parameter archive and trend charts support process review and troubleshooting, while Google Firebase provides cloud telemetry.</p>
+              <p class="details">Technologies: Java, Linux, Google Firebase, Modbus, CODESYS, ST function blocks.</p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="CERES 4" aria-label="CERES 4 operator interface, process trends and equipment gallery">
+              <button class="project-image-button" type="button" aria-label="Enlarge CERES 4 image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/ceres4/operator-interface.png" width="1639" height="960" loading="lazy" alt="CERES 4 operator interface with a multi-column plant diagram, pump and heater controls, operating modes and cycle statistics" data-caption="Operator interface">
+                <img class="gallery-slide" src="../assets/projects/ceres4/process-trends.png" width="1639" height="960" loading="lazy" alt="CERES 4 process history chart showing temperature and pressure trends over a rectification cycle" data-caption="Process trends" hidden>
+                <img class="gallery-slide" src="../assets/projects/ceres4/rectification-equipment-hmi.png" width="1122" height="1402" loading="lazy" alt="Render of a three-column rectification plant with stainless steel pipework, pumps and an operator panel displaying the CERES 4 interface" data-caption="Rectification plant" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous CERES 4 image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next CERES 4 image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="ceres21">
+            <div>
+              <h3>CERES 2.1 — brewery automation</h3>
+              <p>I developed software and embedded control for a two-vessel brewing system, combining a touchscreen operator interface with control of heaters, pumps, valves and mixers.</p>
+              <p>Recipe editing and automated brewing sequences support repeatable batches. Process diagrams, temperature trends, equipment settings and searchable operation logs help operators monitor and review each brew.</p>
+              <p class="details">Technologies: Java, Swing, C/C++, STM32, Modbus and SQLite.</p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="CERES 2.1" aria-label="CERES 2.1 brewery equipment and control-interface gallery">
+              <button class="project-image-button" type="button" aria-label="Enlarge CERES 2.1 image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/ceres21/brewery-equipment-blurred.png" width="1672" height="941" loading="lazy" alt="Brewery vessels, pumps and pipework with the CERES touchscreen operator panel installed above the equipment" data-caption="Brewery equipment · product demonstration">
+                <img class="gallery-slide" src="../assets/projects/ceres21/touchscreen-control-blurred.png" width="1672" height="941" loading="lazy" alt="CERES 2.1 touchscreen showing a two-vessel brewing process diagram, temperature readings, pumps and valve controls" data-caption="Touchscreen process control" hidden>
+                <img class="gallery-slide" src="../assets/projects/ceres21/brewing-trends-blurred.png" width="1672" height="941" loading="lazy" alt="CERES 2.1 brewing-process chart displaying temperature stages and parallel brewing schedules" data-caption="Brewing recipes and temperature trends" hidden>
+                <img class="gallery-slide" src="../assets/projects/ceres21/interface-overview.png" width="638" height="955" loading="lazy" alt="CERES brewery control interface overview with brewing schedule, temperature chart and equipment-control screens" data-caption="Brewery control interfaces" style="object-fit: cover;" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous CERES 2.1 image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next CERES 2.1 image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="roburcam">
+            <div>
+              <h3>RoburCAM — 2D CAD/CAM for sheet metal punching</h3>
+              <p>I worked as Team Lead and Developer on RoburCAM, a 2D CAD/CAM application for Euromac CNC punch presses. It turns drawings into production programs by adding punch operations, tooling and machining instructions.</p>
+              <p>AutoCAD and SolidWorks interfaces automate drawing import. A tool library, automatic tool selection and automatic sheet nesting reduce manual setup and help use sheet material efficiently.</p>
+              <p class="details">Technologies: C/C++, Delphi, OpenGL, CNC and AutoCAD / SolidWorks APIs.</p>
+              <p class="project-links"><a href="https://www.roburcam.com/en/">RoburCAM website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="RoburCAM" aria-label="RoburCAM drawing, tooling, punch simulation and machine gallery">
+              <button class="project-image-button" type="button" aria-label="Enlarge RoburCAM image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/roburcam/drawing-workspace.png" width="1697" height="927" loading="lazy" alt="RoburCAM drawing workspace with a sheet metal part, radial slots, clamps, tool panel and drawing controls" data-caption="Drawing workspace">
+                <img class="gallery-slide" src="../assets/projects/roburcam/tool-library.png" width="1637" height="961" loading="lazy" alt="RoburCAM Multi-Tool editor showing the tool library and numbered punch stations" data-caption="Tool library and Multi-Tool setup" hidden>
+                <img class="gallery-slide" src="../assets/projects/roburcam/punch-simulation.png" width="1995" height="788" loading="lazy" alt="RoburCAM punch simulation with punching operations, sheet movements and clamp zones" data-caption="Punch simulation" hidden>
+                <img class="gallery-slide" src="../assets/projects/roburcam/euromac.jpg" width="1024" height="596" loading="lazy" alt="Euromac MTX CNC punch press with a punched sheet on its work table" data-caption="Euromac CNC punch press" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous RoburCAM image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next RoburCAM image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="primecut">
+            <div>
+              <h3>PrimeCUT and PrimeShape — CAD/CAM for CNC cutting</h3>
+              <p>I worked on PrimeCUT and PrimeShape, CAD/CAM applications that turn engineering geometry into programs for industrial CNC cutting machines. The workflow covers shape modelling, sheet nesting and preparation of cutting paths.</p>
+              <p>My development work included 3D graphics with OpenGL, geometric profiles and conversion of geometry into CNC programs and G-code.</p>
+              <p class="details">Technologies: C/C++, Delphi, OpenGL, 3D geometry, CAD/CAM and CNC / G-code.</p>
+              <p class="project-links"><a href="https://kineticusa.com/cutting-machines/software/primecut-ne/">Product website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="PrimeCUT and PrimeShape" aria-label="PrimeCUT and PrimeShape modelling, nesting and machining gallery">
+              <button class="project-image-button" type="button" aria-label="Enlarge PrimeCUT image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/primecut/solid-import.jpg" width="899" height="656" loading="lazy" alt="PrimeCUT solid model import window displaying a three-dimensional plate component" data-caption="3D model import">
+                <img class="gallery-slide" src="../assets/projects/primecut/nesting.png" width="900" height="510" loading="lazy" alt="PrimeCUT nesting workspace showing parts arranged on a plate and a library of stock sheets" data-caption="Sheet nesting" hidden>
+                <img class="gallery-slide" src="../assets/projects/primecut/primeshape.png" width="1100" height="760" loading="lazy" alt="PrimeShape parametric pipe model with dimensions, geometric properties and model display controls" data-caption="PrimeShape · parametric geometry" hidden>
+                <img class="gallery-slide" src="../assets/projects/primecut/part-processing.jpg" width="1024" height="744" loading="lazy" alt="PrimeCUT part processing view with coloured machining paths and time analysis by tool" data-caption="Machining paths and time analysis" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous PrimeCUT image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next PrimeCUT image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="power-control">
+            <div>
+              <h3>Telecom DC power and backup control</h3>
+              <p>I developed application and embedded software for telecom DC power and battery backup systems, spanning operator interfaces, client-server communication and hardware control.</p>
+              <p>Work included PowerManager remote monitoring and control, plus low-level logic for DC power delivery, battery backup and charging, helping communications equipment stay online during mains outages.</p>
+              <p class="details">Technologies: Delphi, C++, IAR, embedded development and client-server applications.</p>
+              <p class="project-links"><a href="https://www.eaton.com/us/en-us/catalog/dc-power-solutions/sc300-system-controller.html">Eaton product website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Distributed power control" aria-label="PowerManager remote monitoring and battery control gallery">
+              <button class="project-image-button" type="button" aria-label="Enlarge power control image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/power-control/power-system-overview.jpg" width="827" height="766" loading="lazy" alt="PowerManagerII system overview showing the rectifier, DC distribution, battery, voltage and current readings, control processes and alarms" data-caption="PowerManager · power system overview">
+                <img class="gallery-slide" src="../assets/projects/power-control/site-browser.jpg" width="827" height="598" loading="lazy" alt="PowerManagerII site browser with a navigation tree and photographs of distributed power equipment and battery systems" data-caption="PowerManager · distributed site monitoring" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous power control image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next power control image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="rectifier-testing">
+            <div>
+              <h3>Rectifier production test automation</h3>
+              <p>I built a specialized scripting tool for pre-shipment testing of telecom rectifiers and DC power systems. It generated text-based test sequences for every combination of selected parameter values, replacing repetitive manual script preparation.</p>
+              <p>The scenarios covered input power, temperature, airflow and output load in dedicated test environments. The equipment used hot-swappable rectifier modules in systems that supply DC power, charge batteries and keep telecom networks running during mains failures.</p>
+              <p class="project-links"><a href="https://www.eaton.com/gb/en-gb/catalog/dc-power-solutions/eaton-apr48-3g-rectifier.html">Eaton rectifiers</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Rectifier production testing" aria-label="Telecom rectifier module">
+              <button class="project-image-button" type="button" aria-label="Enlarge rectifier image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/rectifier-testing/eaton-apr48.jpg" width="346" height="810" loading="lazy" alt="Eaton APR48 plug-in telecom rectifier module with front cooling fans and removal handle" data-caption="Hot-swappable telecom rectifier · Eaton APR48">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous rectifier image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next rectifier image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="smartplant">
+            <div>
+              <h3>Intergraph SmartPlant — integration and implementation</h3>
+              <p>SmartPlant is Intergraph's enterprise engineering platform for designing complex industrial facilities and managing their engineering data and documentation.</p>
+              <p>I worked on its integration and implementation within engineering workflows, including electrical design, requirements gathering, specifications and engineering process automation.</p>
+              <p class="details">Technologies: Intergraph SmartPlant, systems integration and engineering data management.</p>
+              <p class="project-links"><a href="https://etap.com/product/smartplant-electrical-interface">SmartPlant Electrical</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Intergraph SmartPlant" aria-label="Public SmartPlant product and integration examples">
+              <button class="project-image-button" type="button" aria-label="Enlarge SmartPlant image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/smartplant/foundation-interface.jpg" width="842" height="486" loading="lazy" alt="Public Intergraph SmartPlant Foundation product example combining engineering diagrams, a 3D plant model and equipment data" data-caption="SmartPlant Foundation · Intergraph product example">
+                <img class="gallery-slide" src="../assets/projects/smartplant/electrical-data-exchange.jpg" width="720" height="394" loading="lazy" alt="Public ETAP example of electrical component mapping and data exchange with Intergraph SmartPlant Electrical" data-caption="Electrical data exchange · ETAP product example" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous SmartPlant image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next SmartPlant image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="industrial-safety">
+            <div>
+              <h3>High-reliability industrial control and safety systems</h3>
+              <p>I worked on the integration and configuration of Invensys safety systems and programmed safety logic for industrial applications requiring high reliability.</p>
+              <p>The work involved triple modular redundant (TMR) platforms, with three independent processing channels and majority voting to support fault-tolerant operation, together with requirements definition and software specifications.</p>
+              <p class="details">Technologies: Invensys safety systems, triple modular redundancy (TMR) and safety-logic programming.</p>
+              <p class="project-links"><a href="https://www.se.com/nz/en/product-range/63681-ecostruxure-triconex-safety-systems/">Triconex website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Industrial safety systems" aria-label="Public Triconex product and triple modular redundancy illustrations">
+              <button class="project-image-button" type="button" aria-label="Enlarge industrial safety image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/safety/triconex-rack.png" width="800" height="459" loading="lazy" alt="Public product illustration of a Triconex safety-controller rack with processor and input/output modules" data-caption="Triconex controller · public product example">
+                <img class="gallery-slide" src="../assets/projects/safety/tmr-architecture.png" width="867" height="394" loading="lazy" alt="Tricon TMR architecture showing three input channels, three main processors, output channels and majority voting" data-caption="Tricon · triple modular redundant architecture" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous industrial safety image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next industrial safety image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="hvrc-create">
+            <div>
+              <h3>3D control-room modelling — HVRC CREATE</h3>
+              <p>I used HVRC CREATE to build a 3D model of an operator control room and design the arrangement of control panels, monitors and workstations.</p>
+              <p>The work covered operator-interface usability and ergonomics, including sight lines and display-text readability.</p>
+              <p class="details">Technologies: HVRC CREATE, 3D modelling, human factors and ergonomic evaluation.</p>
+              <p class="project-links"><a href="https://ife.no/en/service/hvrc-create/">HVRC CREATE website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="3D control-room modelling — HVRC CREATE" aria-label="Public HVRC CREATE website examples">
+              <button class="project-image-button" type="button" aria-label="Enlarge HVRC CREATE website image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/hvrc-create/control-room-layout.jpeg" width="1116" height="721" loading="lazy" alt="Official HVRC CREATE Layout Tool example with 3D operator workstations, monitors and virtual operators" data-caption="Control-room layout · IFE documentation example">
+                <img class="gallery-slide" src="../assets/projects/hvrc-create/ergonomic-evaluation.jpeg" width="661" height="555" loading="lazy" alt="Official HVRC CREATE Label Size Tool example visualising the readable viewing distance of control-room display text" data-caption="Readability evaluation · IFE documentation example" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous HVRC CREATE website image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next HVRC CREATE website image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="wt-versant">
+            <div>
+              <h3>C++ web framework experiment — Wt and Versant</h3>
+              <p>An independent software experiment combining Wt (C++ Web Toolkit) with the Versant object database to explore rapid development of interactive C++ web interfaces and an architecture for high-load websites.</p>
+              <p>The prototype work also included experimenting with a custom file-upload widget.</p>
+              <p class="details">Technologies: C++, Wt (Web Toolkit), Versant object database and custom widgets.</p>
+              <p class="project-links"><a href="https://www.webtoolkit.eu/wt">Wt website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="C++ web framework experiment — Wt and Versant" aria-label="Public Wt website examples">
+              <button class="project-image-button" type="button" aria-label="Enlarge Wt website image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/wt-versant/wt-file-upload.jpg" width="1348" height="926" loading="lazy" alt="Official Wt Widget Gallery file-upload example showing its web interface and C++ source code" data-caption="Wt file upload · official gallery example">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Wt website image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Wt website image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="joinfriends">
+            <div>
+              <h3>JoinFriends — online dating and social networking</h3>
+              <p>I was Technical Lead and Project Manager for JoinFriends, an early web startup combining online dating and social networking. I led technical planning and development coordination, turning product ideas into specifications and a PHP / MySQL platform.</p>
+              <p class="details"><strong>Technologies:</strong> PHP, MySQL.</p>
+              <p><a href="https://web.archive.org/web/20070104222610/http://joinfriends.com/" target="_blank" rel="noopener noreferrer">Archived website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="JoinFriends" aria-label="JoinFriends screenshots">
+              <button class="project-image-button" type="button" aria-label="Enlarge JoinFriends image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/joinfriends/homepage-2007-en.svg" width="1265" height="712" loading="lazy" alt="JoinFriends 2007 community homepage" data-caption="Community homepage · 2007">
+                <img class="gallery-slide" src="../assets/projects/joinfriends/homepage-2005-en.svg" width="1280" height="720" loading="lazy" alt="Early JoinFriends 2005 website" data-caption="Early website · 2005" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous JoinFriends image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next JoinFriends image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="kuka-research">
+            <div>
+              <h3>Vision-guided robotics — hair transplantation research</h3>
+              <p>I developed a research prototype exploring automated hair transplantation with a KUKA collaborative robot. OpenCV detected visual markers and estimated their position and orientation to guide the robot's tool.</p>
+              <p>The work combined computer vision with robot control on a sensitive robotic platform designed for human–robot collaboration, using joint torque sensing for contact detection.</p>
+              <p class="details"><strong>Technologies:</strong> Java, C++, OpenCV, KUKA API, visual marker detection and pose estimation.</p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Vision-guided robotics" aria-label="KUKA research prototype images">
+              <button class="project-image-button" type="button" aria-label="Enlarge KUKA research image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/kuka-research/marker-positioning.jpg" width="1920" height="1080" loading="lazy" alt="Visual positioning markers around the prototype test surface beside the robot tool" data-caption="Visual marker positioning">
+                <img class="gallery-slide" src="../assets/projects/kuka-research/kuka-robot.jpg" width="1080" height="1920" loading="lazy" alt="KUKA collaborative robot with the prototype tool attachment" data-caption="KUKA robot · research prototype" hidden>
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous KUKA research image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next KUKA research image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="movitr">
+            <div>
+              <h3>Movitr — video streaming and collaborative translation</h3>
+              <p>I was team lead and developer for Movitr.com, a video player and streaming service with collaborative video translation. The platform brought video delivery together with group workflows for translation, subtitles and voice-over.</p>
+              <p class="details"><strong>Technologies:</strong> Wowza Media Server, Flash / ActionScript, PHP, MySQL.</p>
+              <p><a href="https://web.archive.org/web/20130130231444/http://movitr.com/" target="_blank" rel="noopener noreferrer">Archived website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Movitr" aria-label="Movitr screenshot">
+              <button class="project-image-button" type="button" aria-label="Enlarge Movitr image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/movitr/translation-projects-en.png" width="1672" height="941" loading="lazy" alt="Movitr.com collaborative translation project catalogue with language directions and completion progress" data-caption="Collaborative translation projects">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous Movitr image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next Movitr image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="securos">
+            <div>
+              <h3>SecurOS — video surveillance and security systems</h3>
+              <p>I worked on ISS SecurOS, an integrated platform for distributed video surveillance and security, combining software development with technical and project leadership.</p>
+              <p>My work covered video streaming, recording and archive access, and integration with user databases, card readers, gates, barriers and automatic number-plate recognition.</p>
+              <p class="details"><strong>Technologies:</strong> C/C++, distributed video systems, access-control integration and ANPR.</p>
+              <p><a href="https://issivs.me/solutions/securos-vms-software/securos-enterprise/" target="_blank" rel="noopener noreferrer">SecurOS website</a></p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="SecurOS" aria-label="SecurOS platform image">
+              <button class="project-image-button" type="button" aria-label="Enlarge SecurOS image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/securos/securos-platform.png" width="776" height="363" loading="lazy" alt="SecurOS video surveillance and recognition interfaces on desktop and mobile devices" data-caption="SecurOS platform · ISS">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous SecurOS image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next SecurOS image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+          <li class="project-with-gallery" id="live-voting">
+            <div>
+              <h3>Live audience voting and quizzes</h3>
+              <p>I built a live voting system for large university gatherings. Students opened a shared link on their phones and voted, while charts on the auditorium's main screen updated in real time to show the audience's responses.</p>
+              <p class="details"><strong>Technologies:</strong> PHP, MySQL, Amazon Web Services.</p>
+            </div>
+            <figure class="project-gallery project-gallery-light" data-gallery data-gallery-title="Live audience voting" aria-label="Live voting reconstruction">
+              <button class="project-image-button" type="button" aria-label="Enlarge live voting image" aria-haspopup="dialog">
+                <img class="gallery-slide" src="../assets/projects/live-voting/auditorium-reconstruction.svg" width="1672" height="941" loading="lazy" alt="Reconstruction of students voting by phone in a university auditorium, with a QR code and live pie chart on the main screen" data-caption="Reconstruction · live audience voting">
+              </button>
+              <figcaption class="gallery-controls" hidden>
+                <button type="button" data-previous aria-label="Previous live voting image">&#8592;</button>
+                <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+                <button type="button" data-next aria-label="Next live voting image">&#8594;</button>
+              </figcaption>
+            </figure>
+          </li>
+        </ol>
+      </section>
+
+      <section id="recommendations" aria-labelledby="recommendations-title">
+        <h2 id="recommendations-title">4. Professional recommendations</h2>
+        <p class="summary">Selected excerpts from written recommendations and colleague feedback.</p>
+        <div class="recommendations">
+          <figure class="recommendation">
+            <figcaption><strong>Unimarket &middot; Auckland</strong>Head of Engineering</figcaption>
+            <blockquote><p>&ldquo;&hellip;was a great colleague and was always very productive&hellip;&rdquo;</p></blockquote>
+          </figure>
+          <figure class="recommendation">
+            <figcaption><strong>Powerware / Invensys &middot; Christchurch</strong>Former manager &middot; Written recommendation</figcaption>
+            <blockquote><p>&ldquo;Many who have worked with Artem see him as a professional software engineer of the highest calibre, who meticulously designs, implements and maintains his software products.&rdquo;</p></blockquote>
+          </figure>
+          <figure class="recommendation">
+            <figcaption><strong>Kinetic Engineering Design &middot; Auckland</strong>Former technical director &middot; Written recommendation</figcaption>
+            <blockquote><p>&ldquo;His contribution in the short time he worked for us was significant, and he will be hard to replace.&rdquo;</p></blockquote>
+          </figure>
+          <figure class="recommendation">
+            <figcaption><strong>Unimarket &middot; Auckland</strong>Product Owner &middot; Shared project delivery</figcaption>
+            <blockquote><p>&ldquo;&hellip;you've been an absolute champion on so many changes!&rdquo;</p><p>&ldquo;Still remember when we knocked over the shopping lists UI refresh in a week&hellip;&rdquo;</p></blockquote>
+          </figure>
+        </div>
+        <p class="recommendation-note">Authors' names and contact details are withheld for privacy. Original recommendation letters and supporting correspondence are available upon request.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>Artem Muravev · New Zealand · <a href="https://github.com/ilinic">GitHub</a></p>
+    </footer>
+  </div>
+  <dialog class="gallery-dialog" aria-labelledby="gallery-title">
+    <div class="gallery-dialog-header">
+      <h3 id="gallery-title">ResearchTube</h3>
+      <form method="dialog"><button class="gallery-close" aria-label="Close screenshot">&#215;</button></form>
+    </div>
+    <img alt="">
+    <div class="gallery-controls">
+      <button type="button" data-previous aria-label="Previous screenshot">&#8592;</button>
+      <span class="gallery-caption" aria-live="polite" aria-atomic="true"></span>
+      <button type="button" data-next aria-label="Next screenshot">&#8594;</button>
+    </div>
+  </dialog>
+  <a class="back-to-top" href="#top" aria-label="Back to top" title="Back to top">&#8593;</a>
+  <script>
+    (() => {
+      const toggle = document.getElementById('contact-toggle');
+      const panel = document.getElementById('contact-panel');
+      const canvas = document.getElementById('contact-address');
+      const copy = document.getElementById('copy-contact');
+      const status = document.getElementById('contact-status');
+      const fallback = document.getElementById('contact-copy-fallback');
+      const address = () => String.fromCharCode(97,114,116,101,109,46,109,111,117,114,97,118,105,101,118,64,103,109,97,105,108,46,99,111,109);
+      const phone = () => String.fromCharCode(48,50,50,32,53,56,49,32,48,52,56,50);
+      const copyText = () => address();
+      const drawContact = (target, text) => {
+        const context = target.getContext('2d');
+        if (!context) return false;
+        const font = '28px Arial, Helvetica, sans-serif';
+        context.font = font;
+        const width = Math.ceil(context.measureText(text).width / 2) + 2;
+        target.width = width * 2;
+        target.height = 56;
+        target.style.width = width + 'px';
+        context.font = font;
+        context.fillStyle = '#20252b';
+        context.textBaseline = 'middle';
+        context.fillText(text, 0, target.height / 2);
+        return true;
+      };
+      toggle.addEventListener('click', () => {
+        const expanded = toggle.getAttribute('aria-expanded') === 'true';
+        toggle.setAttribute('aria-expanded', String(!expanded));
+        panel.hidden = expanded;
+        if (!expanded) {
+          drawContact(document.getElementById('contact-phone'), 'Phone: ' + phone());
+          if (!drawContact(canvas, 'Email: ' + address())) {
+            fallback.value = copyText();
+            fallback.hidden = false;
+          }
+        } else {
+          status.textContent = '';
+          fallback.value = '';
+          fallback.hidden = true;
+        }
+      });
+      copy.addEventListener('click', async () => {
+        try {
+          await navigator.clipboard.writeText(copyText());
+          status.textContent = 'Email copied.';
+        } catch {
+          fallback.value = copyText();
+          fallback.hidden = false;
+          fallback.focus();
+          fallback.select();
+          status.textContent = 'Copy the selected email address.';
+        }
+      });
+    })();
+    const backToTop = document.querySelector('.back-to-top');
+    const updateBackToTop = () => backToTop.classList.toggle('visible', window.scrollY > 420);
+    window.addEventListener('scroll', updateBackToTop, { passive: true });
+    updateBackToTop();
+    const imageDialog = document.querySelector('.gallery-dialog');
+    let activeGallery;
+    document.querySelectorAll('[data-gallery]').forEach(gallery => {
+      const slides = [...gallery.querySelectorAll('.gallery-slide')];
+      const controls = gallery.querySelector('.gallery-controls');
+      let index = 0;
+      const render = () => {
+        slides.forEach((slide, position) => { slide.hidden = position !== index; });
+        const current = slides[index];
+        const caption = `${index + 1} / ${slides.length} · ${current.dataset.caption}`;
+        gallery.querySelector('.gallery-caption').textContent = caption;
+        if (imageDialog.open && activeGallery === gallery) {
+          imageDialog.querySelector('#gallery-title').textContent = gallery.dataset.galleryTitle;
+          const enlarged = imageDialog.querySelector('img');
+          enlarged.src = current.src;
+          enlarged.alt = current.alt;
+          imageDialog.querySelector('.gallery-caption').textContent = caption;
+          imageDialog.querySelector('.gallery-controls').hidden = slides.length < 2;
+        }
+      };
+      gallery.changeSlide = step => {
+        index = (index + step + slides.length) % slides.length;
+        render();
+      };
+      controls.hidden = slides.length < 2;
+      gallery.querySelector('[data-previous]').addEventListener('click', () => gallery.changeSlide(-1));
+      gallery.querySelector('[data-next]').addEventListener('click', () => gallery.changeSlide(1));
+      gallery.querySelector('.project-image-button').addEventListener('click', () => {
+        activeGallery = gallery;
+        imageDialog.showModal();
+        render();
+      });
+      gallery.addEventListener('keydown', event => {
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          gallery.changeSlide(event.key === 'ArrowLeft' ? -1 : 1);
+        }
+      });
+      render();
+    });
+    imageDialog.querySelector('[data-previous]').addEventListener('click', () => activeGallery.changeSlide(-1));
+    imageDialog.querySelector('[data-next]').addEventListener('click', () => activeGallery.changeSlide(1));
+    imageDialog.addEventListener('keydown', event => {
+      if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+        event.preventDefault();
+        activeGallery.changeSlide(event.key === 'ArrowLeft' ? -1 : 1);
+      }
+    });
+    imageDialog.addEventListener('click', event => {
+      if (event.target === imageDialog) {
+        const bounds = imageDialog.getBoundingClientRect();
+        if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) imageDialog.close();
+      }
+    });
+  </script>
+</body>
+</html>
